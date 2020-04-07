@@ -19,10 +19,13 @@
   "private": true,
   "scripts": {
     "clean": "rimraf .cache src/.temp",
-    "build": "gridsome build",
     "lint": "prettier --write \"./src/**/*.{js,vue,json,md}\" \"./**/*.{js,json}\"",
+    "build": "gridsome build",
+    "explore": "gridsome explore",
     "start:dev": "clear && gridsome develop",
-    "explore": "gridsome explore"
+    "start:prod": "yarn run build && live-server ./dist",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -o github -d ./dist"
   },
   "dependencies": {
     "gridsome": "^0.7.0",
@@ -30,6 +33,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
+    "live-server": "^1.2.1",
     "rimraf": "^3.0.2",
     "tailwindcss": "1.2.0"
   }

@@ -11,8 +11,7 @@ const postcssPlugins = [tailwind()];
 module.exports = {
   siteName: 'edixonalberto',
   siteDescription: 'Personal website and programming blog',
-  siteUrl: 'www.edixonalberto.com',
-  pathPrefix: '',
+  siteUrl: 'http://www.edixonalberto.com',
   icon: './static/favicon.png',
   plugins: [],
   css: {
