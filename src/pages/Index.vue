@@ -76,10 +76,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="container-inner mx-auto overflow-x-hidden">
-        <g-image src="../../static/pointers.svg" alt="pointers" />
-      </div> -->
     </div>
 
     <!-- TODO: SKILLS -->
@@ -90,8 +86,8 @@
 </template>
 
 <script>
-import Projects from '../components/Projects';
-import Contact from '../components/Contact';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 
 export default {
   components: {
