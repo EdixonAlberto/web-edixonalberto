@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-x-hidden pb-16" id="projects">
     <div
-      class="projects container-inner mx-auto text-xl border-gray-500 border-t pt-10 relative"
+      class="projects container-inner mx-auto text-xl border-gray-500 border-t pt-10 mb-32 relative"
     >
       <h2 class="font-bold mb-6 text-center">Proyectos</h2>
       <h2 class="font-bold mb-6">

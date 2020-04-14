@@ -33,7 +33,7 @@
     <!-- ABOUT -->
     <div class="overflow-x-hidden">
       <div
-        class="about mx-auto text-xl container-inner border-gray-500 border-t pt-10 mb-12 relative"
+        class="about mx-auto text-xl container-inner border-gray-500 border-t pt-10 mb-32 relative"
         id="about"
       >
         <h2 class="font-bold mb-6 text-center">Sobre mí</h2>
@@ -57,21 +57,23 @@
           </div>
           <div class="flex-1 text-lg text-base ml-6">
             <p>
-              Mi nombre es Edixon Alberto Piña Hernandez, soy ingeniero electrónico en
-              computación y actualmente me dedico a tiempo completo como desarrollador de
-              software.
+              Mi nombre es
+              <span class="">Edixon Alberto Piña Hernandez</span>, soy
+              <span class="text-green-600">ingeniero electrónico en computación</span> y
+              actualmente me dedico a tiempo completo como desarrollador de software.
             </p>
 
             <p class="mt-4">
               Realizo proyectos y presto mis servicios de forma remota a empresas en todo
-              el mundo, trabajando en el diseño, desarrollo, creación y mantenimiento de
-              software de alto nivel.
+              el mundo, trabajando en el diseño, desarrollo y mantenimiento de software
+              tanto en el <span class="text-green-600">frontend</span> como en el
+              <span class="text-green-600">backend</span>.
             </p>
 
             <p class="mt-4">
               Soy una persona autodidacta, que se dedica constantemente aprender nuevas
-              herramientas y tecnologías para optimizar su trabajo y crecer como
-              profesional.
+              herramientas y tecnologías para optimizar su trabajo y crecer
+              profesionalmente.
             </p>
           </div>
         </div>
@@ -79,8 +81,15 @@
     </div>
 
     <!-- TODO: SKILLS -->
+    <div
+      class="skills mx-auto text-xl container-inner border-gray-500 border-t pt-10 mb-32 relative"
+      id="skills"
+    >
+      <h2 class="font-bold mb-6 text-center">Habilidades</h2>
+      <span class="text-justify">En construcción...</span>
+    </div>
 
-    <!-- CONTACT-ME -->
+    <!-- CONTACT -->
     <Contact />
   </Layout>
 </template>
@@ -95,7 +104,7 @@ export default {
     Contact
   },
   metaInfo: {
-    title: 'Inicio'
+    title: 'edixonalberto.com'
   }
 };
 </script>

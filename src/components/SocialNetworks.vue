@@ -2,7 +2,12 @@
   <ul class="flex items-center">
     <!-- EMAIL -->
     <li class="mx-8">
-      <a class="text-white hover:text-gray-400" target="_blank" :href="email">
+      <a
+        class="text-white hover:text-gray-400"
+        target="_blank"
+        :href="`mailto:${email}`"
+        :title="`Email | ${email}`"
+      >
         <svg
           width="25"
           height="20"
@@ -19,7 +24,12 @@
 
     <!-- GITHUB -->
     <li class="mr-8">
-      <a class="text-white hover:text-gray-400" target="_blank" :href="github">
+      <a
+        class="text-white hover:text-gray-400"
+        target="_blank"
+        :href="github"
+        title="Github | EdixonAlberto"
+      >
         <svg
           width="20"
           height="19"
@@ -36,7 +46,12 @@
 
     <!-- TWITTER -->
     <li class="mr-8">
-      <a class="text-white hover:text-gray-400" target="_blank" :href="twitter">
+      <a
+        class="text-white hover:text-gray-400"
+        target="_blank"
+        :href="twitter"
+        title="Twitter | @EdixonAlbertto"
+      >
         <svg
           width="20"
           height="17"

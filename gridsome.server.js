@@ -6,11 +6,16 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function(api) {
-  api.loadSource(({ addCollection }) => {
+  api.loadSource((store) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+    store.addMetadata('personalEmail', 'edixonalbertto@gmail.com');
   });
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
+  });
+
+  api.configureServer((app) => {
+    // app.listen(80, '__HOST__');
   });
 };

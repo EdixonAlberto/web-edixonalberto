@@ -9,7 +9,7 @@ const tailwind = require('tailwindcss');
 const postcssPlugins = [tailwind()];
 
 module.exports = {
-  siteName: 'edixonalberto',
+  siteName: 'Personal Website',
   siteDescription: 'Personal website and programming blog',
   siteUrl: 'http://www.edixonalberto.com',
   icon: './static/favicon.png',

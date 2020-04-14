@@ -107,12 +107,12 @@
         class="container mx-auto flex flex-col sm:flex-row items-center justify-between py-8"
       >
         <div class="mb-8 sm:mb-0 text-center">
-          &copy; 2020 por edixonalberto.com. All rights reserved.
+          &copy; 2020 by edixonalberto.com. All rights reserved.
         </div>
 
         <!-- SOCIAL-NETWORKS -->
         <social-networks
-          :email="'mailto:edixonalbertto@gmail.com'"
+          :email="$static.metadata.personalEmail"
           :github="'https://github.com/EdixonAlberto'"
           :twitter="'https://twitter.com/EdixonAlbertto'"
           :instagram="'https://instagram.com/{username}'"
@@ -137,7 +137,8 @@
 <static-query>
 query {
   metadata {
-    siteName
+    siteName,
+    personalEmail
   }
 }
 </static-query>
