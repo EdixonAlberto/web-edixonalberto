@@ -5,9 +5,12 @@ dist/
 .temp/
 .cache/
 blog/
-docs/
 
-# Files
+# Files Other
 *.log
 # src/.temp
 # .DS_Store
+
+# Environment
+.env
+.env.*
