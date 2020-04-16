@@ -6,7 +6,7 @@
       ></path>
     </svg>
 
-    <div class="contact-me bg-background-tertiary pt-10">
+    <div class="contact bg-background-tertiary pt-10">
       <div class="mx-auto text-xl container-inner relative">
         <h2 class="font-bold mb-6 text-center">Contactame</h2>
         <div
@@ -18,13 +18,14 @@
           </svg>
         </div>
 
+        <!-- TODO: mejorar este dialogo -->
         <p class="mb-12">
-          Para comunicarte directamente conmigo, escribeme un correo electrónico,
-          responderé lo mas proto posible.
+          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
+          posible.
         </p>
 
         <div class="text-lg sm:text-lg mb-16">
-          <form action="#" class="mb-12">
+          <form class="mb-12" @submit.prevent="submit">
             <div class="flex flex-wrap mb-6 -mx-4">
               <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
                 <label class="block mb-2 text-copy-primary" for="name">
@@ -82,3 +83,58 @@
     </div>
   </div>
 </template>
+
+<static-query>
+query {
+  metadata {
+    personalEmail
+  }
+}
+</static-query>
+
+<script>
+import axios from 'axios';
+
+export default {
+  methods: {
+    submit(e) {
+      const form = e.target;
+      const [name, email, message] = form.elements;
+
+      // TODO: filter and clean data
+
+      // Preparing mail
+      const mail = {
+        from: email.value,
+        to: this.$static.metadata.personalEmail,
+        subject: `${name.value} | from edixonalberto.com`,
+        message: message.value
+      };
+
+      this.sendMail(mail);
+
+      // TODO: adding security and validations
+      // for (var input of inputs) {
+      //   console.log(input);
+      //   if (input.value === '') {
+      //     fieldsFull = false;
+      //     break;
+      //   }
+      // }
+    },
+
+    async sendMail(mail) {
+      const url = process.env.GRIDSOME_API_URL;
+
+      try {
+        const { data } = await axios.post(`${url}/api/send_email`, mail, {
+          headers: { 'Content-Type': 'application/json' }
+        });
+        console.log(data); // TODO: add notification later
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+  }
+};
+</script>
