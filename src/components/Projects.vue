@@ -8,7 +8,7 @@
         <div class="w-full md:w-2/5 h-full overflow-hidden" style="min-height: 15rem;">
           <g-image
             class="absolute w-full h-full object-contain object-left rounded-l-lg"
-            :src="loadImagePath(project.image)"
+            :src="project.image"
             alt=""
           />
           <div class="absolute w-full h-full bg-green-600 opacity-25 rounded-lg"></div>
@@ -48,13 +48,11 @@
 
 <script>
 import projects from '@/data/projects.json';
-import loadImagePath from '@/services/loadImagePath';
 
 export default {
   data() {
     return {
-      projects,
-      loadImagePath
+      projects
     };
   }
 };

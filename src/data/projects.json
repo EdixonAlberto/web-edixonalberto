@@ -3,7 +3,6 @@
     "title": "Bot CoinBot",
     "description": "Bot de discord para administrar criptomonedas en el mercado de Binance.",
     "content": "",
-    "imgName": "coinbot.png",
     "links": ["https://github.com/EdixonAlberto/coin-bot"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/coin-bot/dev/.github/chat-discord.png"
   },
