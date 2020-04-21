@@ -33,12 +33,13 @@
       title="Proyectos"
       subtitle="Proyectos realizados"
       triangulePos="r"
+      :separator="true"
     >
       <projects />
     </Section>
 
     <!-- ABOUT -->
-    <Section id="about" title="Sobre mí" triangulePos="l">
+    <Section id="about" title="Sobre mí" triangulePos="l" :separator="true">
       <div class="flex flex-col sm:flex-row justify-between items-center">
         <div>
           <g-image
@@ -72,19 +73,17 @@
     </Section>
 
     <!-- TODO: SKILLS -->
-    <Section
+    <!-- <Section
       id="skills"
       title="Habilidades"
       subtitle="En construcción..."
       triangulePos="r"
     >
-    </Section>
-    <!--
-    <ProjectCard /> -->
+    </Section> -->
 
-    <!-- BUSINESS -->
-    <Section subtitle="He trabajado para" triangulePos="l">
-      <business />
+    <!-- COMPANIES -->
+    <Section subtitle="He trabajado para" :separator="true">
+      <companies />
     </Section>
 
     <!-- CONTACT -->
@@ -95,14 +94,14 @@
 <script>
 import Section from '@/layouts/Section';
 import Projects from '@/components/Projects';
-import Business from '@/components/Business';
+import Companies from '@/components/Companies';
 import Contact from '@/components/Contact';
 
 export default {
   components: {
     Section,
     Projects,
-    Business,
+    Companies,
     Contact
   },
   metaInfo: {

@@ -1,7 +1,10 @@
 <template>
   <div class="overflow-x-hidden" :id="id">
     <div
-      class="container-inner mx-auto text-xl border-gray-500 border-t pt-10 mb-24 relative"
+      :class="[
+        separator ? 'border-gray-500 border-t' : '',
+        'container-inner mx-auto text-xl pt-10 mb-24 relative'
+      ]"
     >
       <h2 v-if="title" class="font-bold mb-6 text-center">{{ title }}</h2>
       <h3 class="mb-6" :class="title ? '' : 'font-bold'">{{ subtitle }}</h3>
@@ -33,6 +36,6 @@
 
 <script>
 export default {
-  props: ['id', 'title', 'subtitle', 'triangulePos']
+  props: ['id', 'title', 'subtitle', 'triangulePos', 'separator']
 };
 </script>

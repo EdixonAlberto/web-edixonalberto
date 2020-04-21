@@ -13,8 +13,9 @@
           Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
           posible.
         </h3>
+
         <div
-          class="absolute right-0 top-0 mt-10"
+          class="absolute right-0 top-0 mt-2"
           style="transform: translate(100%) rotate(180deg)"
         >
           <svg width="170px" height="170px">
