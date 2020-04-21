@@ -4,45 +4,35 @@
     "description": "Bot de discord para administrar criptomonedas en el mercado de Binance.",
     "content": "",
     "imgName": "coinbot.png",
-    "links": [
-      "https://github.com/EdixonAlberto/coin-bot"
-    ],
+    "links": ["https://github.com/EdixonAlberto/coin-bot"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/coin-bot/dev/.github/chat-discord.png"
   },
   {
     "title": "Api Dicabeg",
     "description": "Api RESTful para la aplicación movil Dicabeg.",
     "content": "Creación de programa backend y base de datos PostgreSQL.",
-    "links": [
-      "https://github.com/EdixonAlberto/api-dicabeg"
-    ],
+    "links": ["https://github.com/EdixonAlberto/api-dicabeg"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/api-dicabeg/v2/.github/image-preview.jpg"
   },
   {
     "title": "Doc Dicabeg",
     "description": "Pagina web estática para documentar aplicación movil Dicabeg",
     "content": "",
-    "links": [
-      "https://github.com/EdixonAlberto/doc-dicabeg"
-    ],
+    "links": ["https://github.com/EdixonAlberto/doc-dicabeg"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/doc-dicabeg/master/.github/index-page.png"
   },
   {
     "title": "Web edixonalberto.com",
     "description": "Pagina web personal para exponer proyectos e información profesional.",
     "content": "",
-    "links": [
-      "https://github.com/EdixonAlberto/web-edixonalberto"
-    ],
+    "links": ["https://github.com/EdixonAlberto/web-edixonalberto"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/web-edixonalberto/master/.github/index-page.png"
   },
   {
     "title": "Register ReactJS",
     "description": "Formulario para el registro y almacenamiento de usuarios.",
     "content": "Capos completos de formulario, control de estado por medio de Redux y almacenamiento en la nube con Firebase.",
-    "links": [
-      "https://github.com/EdixonAlberto/register-react"
-    ],
+    "links": ["https://github.com/EdixonAlberto/register-react"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/register-react/master/docs/pantalla1.png"
   }
 ]

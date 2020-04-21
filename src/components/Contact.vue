@@ -9,20 +9,18 @@
     <div class="contact bg-background-tertiary pt-10">
       <div class="mx-auto text-xl container-inner relative">
         <h2 class="font-bold mb-6 text-center">Contactame</h2>
+        <h3 class="mb-6">
+          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
+          posible.
+        </h3>
         <div
-          class="absolute right-0 top-0"
+          class="absolute right-0 top-0 mt-10"
           style="transform: translate(100%) rotate(180deg)"
         >
           <svg width="170px" height="170px">
             <use xlink:href="#dots-triangle" />
           </svg>
         </div>
-
-        <!-- TODO: mejorar este dialogo -->
-        <p class="mb-12">
-          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
-          posible.
-        </p>
 
         <div class="text-lg sm:text-lg mb-16">
           <form class="mb-12" @submit.prevent="submit">
@@ -94,8 +92,13 @@ query {
 
 <script>
 import axios from 'axios';
+import Section from '@/layouts/Section';
 
 export default {
+  components: {
+    Section
+  },
+
   methods: {
     submit(e) {
       const form = e.target;
