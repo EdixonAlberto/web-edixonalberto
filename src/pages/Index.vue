@@ -20,7 +20,7 @@
       <div class="mt-2 sm:mt-0">
         <g-image
           class="mx-auto sm:mx-0"
-          src="../../static/programmer.svg"
+          src="@/assets/svg/programmer.svg"
           alt="hero"
           width="350%"
         />
@@ -28,79 +28,81 @@
     </div>
 
     <!-- PROJECTS -->
-    <Projects />
+    <Section
+      id="projects"
+      title="Proyectos"
+      subtitle="Proyectos realizados"
+      triangulePos="r"
+    >
+      <projects />
+    </Section>
 
     <!-- ABOUT -->
-    <div class="overflow-x-hidden">
-      <div
-        class="about mx-auto text-xl container-inner border-gray-500 border-t pt-10 mb-32 relative"
-        id="about"
-      >
-        <h2 class="font-bold mb-6 text-center">Sobre mí</h2>
-
-        <div
-          class="absolute left-0"
-          style="top: 10%; transform: translateX(-100%) scaleY(-1)"
-        >
-          <svg width="170px" height="170px">
-            <use xlink:href="#dots-triangle" />
-          </svg>
+    <Section id="about" title="Sobre mí" triangulePos="l">
+      <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div>
+          <g-image
+            src="https://s.gravatar.com/avatar/9d9876b16f45d91d1cb192bf3a035548?s=400"
+            alt="avatar"
+            class="w-32 h-32 rounded-full mb-8 lg:mb-0"
+          />
         </div>
+        <div class="flex-1 text-lg text-base ml-6">
+          <p>
+            Mi nombre es
+            <span class="">Edixon Alberto Piña Hernandez</span>, soy
+            <span class="text-green-600">ingeniero electrónico en computación</span> y
+            actualmente me dedico a tiempo completo como desarrollador de software.
+          </p>
 
-        <div class="flex flex-col sm:flex-row justify-between items-center">
-          <div>
-            <g-image
-              src="../../static/avatar.png"
-              alt="avatar"
-              class="w-32 h-32 rounded-full mb-8 lg:mb-0"
-            />
-          </div>
-          <div class="flex-1 text-lg text-base ml-6">
-            <p>
-              Mi nombre es
-              <span class="">Edixon Alberto Piña Hernandez</span>, soy
-              <span class="text-green-600">ingeniero electrónico en computación</span> y
-              actualmente me dedico a tiempo completo como desarrollador de software.
-            </p>
+          <p class="mt-4">
+            Realizo proyectos y presto mis servicios de forma remota a empresas en todo el
+            mundo, trabajando en el diseño, desarrollo y mantenimiento de software tanto
+            en el <span class="text-green-600">frontend</span> como en el
+            <span class="text-green-600">backend</span>.
+          </p>
 
-            <p class="mt-4">
-              Realizo proyectos y presto mis servicios de forma remota a empresas en todo
-              el mundo, trabajando en el diseño, desarrollo y mantenimiento de software
-              tanto en el <span class="text-green-600">frontend</span> como en el
-              <span class="text-green-600">backend</span>.
-            </p>
-
-            <p class="mt-4">
-              Soy una persona autodidacta, que se dedica constantemente aprender nuevas
-              herramientas y tecnologías para optimizar su trabajo y crecer
-              profesionalmente.
-            </p>
-          </div>
+          <p class="mt-4">
+            Soy una persona autodidacta, que se dedica constantemente aprender nuevas
+            herramientas y tecnologías para optimizar su trabajo y crecer
+            profesionalmente.
+          </p>
         </div>
       </div>
-    </div>
+    </Section>
 
     <!-- TODO: SKILLS -->
-    <div
-      class="skills mx-auto text-xl container-inner border-gray-500 border-t pt-10 mb-32 relative"
+    <Section
       id="skills"
+      title="Habilidades"
+      subtitle="En construcción..."
+      triangulePos="r"
     >
-      <h2 class="font-bold mb-6 text-center">Habilidades</h2>
-      <span class="text-justify">En construcción...</span>
-    </div>
+    </Section>
+    <!--
+    <ProjectCard /> -->
+
+    <!-- BUSINESS -->
+    <Section subtitle="He trabajado para" triangulePos="l">
+      <business />
+    </Section>
 
     <!-- CONTACT -->
-    <Contact />
+    <contact />
   </Layout>
 </template>
 
 <script>
+import Section from '@/layouts/Section';
 import Projects from '@/components/Projects';
+import Business from '@/components/Business';
 import Contact from '@/components/Contact';
 
 export default {
   components: {
+    Section,
     Projects,
+    Business,
     Contact
   },
   metaInfo: {
