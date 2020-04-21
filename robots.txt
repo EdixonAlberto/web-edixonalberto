@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /*.png$
+
+sitemap: https://edixonalberto.com/sitemap.xml
