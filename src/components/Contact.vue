@@ -76,7 +76,13 @@
               <input
                 type="submit"
                 value="Enviar"
-                class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3 mb-8"
+                class="block bg-green-700 text-white text-sm font-semibold tracking-wide uppercase shadow rounded  px-6 py-3 mb-8"
+                :class="[
+                  sendingEmail
+                    ? 'bg-green-800 cursor-wait'
+                    : 'hover:bg-green-800 cursor-pointer'
+                ]"
+                :disabled="sendingEmail"
               />
             </div>
           </form>
@@ -103,17 +109,23 @@ export default {
     Section
   },
   data() {
-    return {};
+    return {
+      sendingEmail: false
+    };
   },
 
   methods: {
     async submit(e) {
+      // block button
+      this.sendingEmail = true;
+
+      // get values
       const form = e.target;
       const [name, email, message] = form.elements;
 
       // TODO: filter and clean data
 
-      // Preparing mail
+      // Prepare mail
       const mail = {
         from: email.value,
         to: this.$static.metadata.personalEmail,
@@ -123,6 +135,7 @@ export default {
 
       const correct = await this.sendMail(mail);
       if (correct) form.reset();
+      this.sendingEmail = false;
 
       // TODO: adding security and validations
       // for (var input of inputs) {
@@ -136,6 +149,9 @@ export default {
 
     async sendMail(mail) {
       const url = process.env.GRIDSOME_API_URL;
+      const errorMessage =
+        'Ha ocurrido un error y no se ha podido enviar su correo.\n' +
+        'Por favor pulse enviar de nuevo.';
 
       try {
         const { status, data } = await axios.post(`${url}/api/send_email`, mail, {
@@ -145,17 +161,18 @@ export default {
 
         // TODO: add notification later
         if (status === 200) {
-          alert('Su correo ha sido enviado con exito, muchas gracias.');
+          alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
           return true;
         } else {
-          alert('Ha ocurrido un error, intente enviar de nuevo por favor');
+          alert(errorMessage);
           return false;
         }
       } catch (error) {
         console.error(error.message);
-        alert('Ha ocurrido un error, intente enviar de nuevo por favor');
+        alert(errorMessage);
         return false;
       }
+      // TODO: reemplazar los "alert()" por tarjetas o animaciones.
     }
   }
 };
