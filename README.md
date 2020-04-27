@@ -8,10 +8,12 @@
 Personal web page to expose professional information with a blog included to create a post
 about programming.
 
-[www.edixonalberto.com](http://www.edixonalberto.com)
+## [www.edixonalberto.com](http://www.edixonalberto.com)
 
-### Technologies
+### Technologies Used
 
-- Lenguage: JavaScript
-- Framework: Gridsome
+- Programming Language: JavaScript
+- Framework: Gridsome, Vue
 - Styles: CSS3, tailwind
+- API: [api-email-sendgrid](https://github.com/EdixonAlberto/api-email-sendgrid), api
+  created by me to send emails throgh of service [SendGrid](https://sendgrid.com/)

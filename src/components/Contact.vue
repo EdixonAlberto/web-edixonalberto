@@ -9,20 +9,19 @@
     <div class="contact bg-background-tertiary pt-10">
       <div class="mx-auto text-xl container-inner relative">
         <h2 class="font-bold mb-6 text-center">Contactame</h2>
+        <h3 class="mb-6">
+          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
+          posible.
+        </h3>
+
         <div
-          class="absolute right-0 top-0"
+          class="absolute right-0 top-0 mt-2"
           style="transform: translate(100%) rotate(180deg)"
         >
           <svg width="170px" height="170px">
             <use xlink:href="#dots-triangle" />
           </svg>
         </div>
-
-        <!-- TODO: mejorar este dialogo -->
-        <p class="mb-12">
-          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
-          posible.
-        </p>
 
         <div class="text-lg sm:text-lg mb-16">
           <form class="mb-12" @submit.prevent="submit">
@@ -32,9 +31,10 @@
                   Nombre
                 </label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
-                  id="name"
+                  defaultValue=""
                   placeholder="Ingrese su nombre"
                   class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4"
                   required
@@ -46,9 +46,10 @@
                   >Dirección de Correo
                 </label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
-                  id="email"
+                  defaultValue=""
                   placeholder="email@example.com"
                   class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4"
                   required
@@ -64,6 +65,7 @@
                 id="message"
                 rows="5"
                 name="message"
+                defaultValue=""
                 class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-green-700 mb-2 px-4 py-4"
                 placeholder="Ingrese su mensaje aquí."
                 required
@@ -94,10 +96,18 @@ query {
 
 <script>
 import axios from 'axios';
+import Section from '@/layouts/Section';
 
 export default {
+  components: {
+    Section
+  },
+  data() {
+    return {};
+  },
+
   methods: {
-    submit(e) {
+    async submit(e) {
       const form = e.target;
       const [name, email, message] = form.elements;
 
@@ -111,7 +121,8 @@ export default {
         message: message.value
       };
 
-      this.sendMail(mail);
+      const correct = await this.sendMail(mail);
+      if (correct) form.reset();
 
       // TODO: adding security and validations
       // for (var input of inputs) {
@@ -127,12 +138,23 @@ export default {
       const url = process.env.GRIDSOME_API_URL;
 
       try {
-        const { data } = await axios.post(`${url}/api/send_email`, mail, {
+        const { status, data } = await axios.post(`${url}/api/send_email`, mail, {
           headers: { 'Content-Type': 'application/json' }
         });
-        console.log(data); // TODO: add notification later
+        console.log(data);
+
+        // TODO: add notification later
+        if (status === 200) {
+          alert('Su correo ha sido enviado con exito, muchas gracias.');
+          return true;
+        } else {
+          alert('Ha ocurrido un error, intente enviar de nuevo por favor');
+          return false;
+        }
       } catch (error) {
         console.error(error.message);
+        alert('Ha ocurrido un error, intente enviar de nuevo por favor');
+        return false;
       }
     }
   }

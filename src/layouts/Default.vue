@@ -8,13 +8,13 @@
       <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
         <div>
           <g-link v-if="theme === 'theme-light'" to="/">
-            <g-image class="w-32 sm:w-48" src="../../static/logo_v1.svg" alt="logo" />
+            <g-image class="w-32 sm:w-48" src="@/assets/svg/logo_v1.svg" alt="logo" />
           </g-link>
 
           <g-link v-else to="/">
             <g-image
               class="w-32 sm:w-48"
-              src="../../static/logo_v1_dark.svg"
+              src="@/assets/svg/logo_v1_dark.svg"
               alt="logo-dark"
             />
           </g-link>
@@ -174,4 +174,4 @@ export default {
 };
 </script>
 
-<style src="../css/main.css" />
+<style src="@/assets/css/main.css" />

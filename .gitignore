@@ -5,6 +5,7 @@ dist/
 .temp/
 .cache/
 blog/
+files/
 
 # Files Other
 *.log
