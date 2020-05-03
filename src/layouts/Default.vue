@@ -114,12 +114,7 @@
         </div>
 
         <!-- SOCIAL-NETWORKS -->
-        <social-networks
-          :email="$static.metadata.personalEmail"
-          :github="'https://github.com/EdixonAlberto'"
-          :twitter="'https://twitter.com/EdixonAlbertto'"
-          :instagram="'https://instagram.com/{username}'"
-        />
+        <social-networks />
       </div>
     </footer>
 
@@ -136,15 +131,6 @@
     </div>
   </div>
 </template>
-
-<static-query>
-query {
-  metadata {
-    siteName,
-    personalEmail
-  }
-}
-</static-query>
 
 <script>
 // import SearchInput from '@/components/SearchInput';

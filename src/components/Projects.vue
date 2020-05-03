@@ -2,11 +2,11 @@
   <div class="bg-background-tertiary border-background-tertiary rounded-lg">
     <ul class="projects-box overflow-y-auto">
       <li v-for="(project, index) in projects" :key="index">
-      <div
-        class="relative md:flex items-center my-6 mx-4 opacity-75 hover:opacity-100
+        <div
+          class="relative md:flex items-center my-6 mx-4 opacity-75 hover:opacity-100
         cursor-pointer"
-      >
-        <!-- IMAGE -->
+        >
+          <!-- IMAGE -->
           <div class="projects-img w-full md:w-2/5 h-full overflow-hidden">
             <g-image
               class="absolute w-full h-full object-contain object-left rounded-l-lg"
@@ -30,7 +30,7 @@
               <polygon points="50,0 100,0 50,100 0,100" />
             </svg>
 
-            <div class="absolute p-3">
+            <div class="absolute mx-3 pr-3">
               <h2 class="font-bold colors text-gray-800">{{ project.title }}</h2>
 
               <div class="text-sm text-gray-600">

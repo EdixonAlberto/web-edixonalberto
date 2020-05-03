@@ -70,11 +70,6 @@ nav .active {
   width: 0.625rem;
 }
 
-/* TODO: encontrar la manera de cambiar el background del scroll en modo theme-dark */
-/* .theme-dark ::-webkit-scrollbar-track {
-  background: red;
-} */
-
 ::-webkit-scrollbar-thumb {
   @apply bg-green-700;
   border-radius: 10px;
