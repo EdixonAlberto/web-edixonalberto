@@ -23,9 +23,9 @@ module.exports = {
         form: 'var(--bg-background-form)'
       },
 
-      copy: {
-        primary: 'var(--text-copy-primary)',
-        secondary: 'var(--text-copy-hover)'
+      color: {
+        primary: 'var(--text-color-primary)',
+        secondary: 'var(--text-color-secondary)'
       },
 
       'border-color': {

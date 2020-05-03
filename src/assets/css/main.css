@@ -7,8 +7,8 @@
   --bg-background-secondary: #f7fafc;
   --bg-background-tertiary: #e2e8f0;
   --bg-background-form: white;
-  --text-copy-primary: #2d3748;
-  --text-copy-secondary: #4a5568;
+  --text-color-primary: #2d3748;
+  --text-color-secondary: #2c7a7b;
   --border-border-color-primary: white;
 }
 .theme-light .search-highlighted {
@@ -17,8 +17,15 @@
 .theme-light .search-hover:hover {
   background: #f0fff4;
 }
-.theme-dark .markdown-body {
-  color: #24292e;
+
+.theme-dark {
+  --bg-background-primary: #0d2438;
+  --bg-background-secondary: #102c44;
+  --bg-background-tertiary: #1e3951;
+  --bg-background-form: #1a202c;
+  --text-color-primary: #cbd5e0;
+  --text-color-secondary: #38b2ac;
+  --border-border-color-primary: #1a202c;
 }
 .theme-dark .search-highlighted {
   background: #2d3748;
@@ -26,18 +33,15 @@
 .theme-dark .search-hover:hover {
   background: #2d3748;
 }
-.theme-dark {
-  --bg-background-primary: #0d2438;
-  --bg-background-secondary: #102c44;
-  --bg-background-tertiary: #1e3951;
-  --bg-background-form: #1a202c;
-  --text-copy-primary: #cbd5e0;
-  --text-copy-secondary: #e2e8f0;
-  --border-border-color-primary: #1a202c;
-}
+
 .theme-dark .markdown-body {
-  color: #cbd5e0;
+  color: #24292e;
 }
+
+/* .theme-dark .markdown-body {
+  color: #cbd5e0;
+} */
+
 .content-wrapper {
   transition: background-color 0.25s;
 }
@@ -45,6 +49,7 @@
 a {
   @apply text-green-600 font-bold;
 }
+
 a:hover {
   @apply text-green-800;
 }
@@ -53,10 +58,33 @@ nav .active {
   font-weight: bold;
   @apply border-black border-b;
 }
+
 .container-inner {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+/* TODO: aplicar reglas de scroll para otros navegadores */
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+/* TODO: encontrar la manera de cambiar el background del scroll en modo theme-dark */
+/* .theme-dark ::-webkit-scrollbar-track {
+  background: red;
+} */
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-700;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-800;
+}
+
+/************************************ RESPONSIVE ****************************************/
 
 @media (min-width: 640px) {
   .container-inner {
@@ -70,7 +98,7 @@ nav .active {
 }
 @media (min-width: 1024px) {
   .container-inner {
-    max-width: 800px;
+    max-width: 983px;
   }
 }
 

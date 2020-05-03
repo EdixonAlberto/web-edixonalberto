@@ -1,6 +1,7 @@
 <template>
   <div
-    class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
+    class="content-wrapper bg-background-primary font-sans text-color-primary
+    leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
     <!-- HEADER -->
@@ -23,7 +24,8 @@
         <div class="block lg:hidden">
           <button
             @click="toggle"
-            class="flex items-center px-3 py-2 border rounded border-gray-500 hover:text-gray-600 hover:border-gray-600"
+            class="flex items-center px-3 py-2 border rounded border-gray-500
+            hover:text-gray-600 hover:border-gray-600"
           >
             <svg
               class="current-color h-3 w-3"
@@ -37,7 +39,8 @@
 
         <!-- NAVBAR -->
         <ul
-          class="uppercase tracking-wide font-bold w-full block flex-grow lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0"
+          class="uppercase tracking-wide font-bold w-full block flex-grow lg:flex
+          lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0"
           :class="isOpen ? 'block' : 'hidden'"
         >
           <!--TODO: SEARCH -->
@@ -53,20 +56,20 @@
           <li class="mr-8 mb-6 lg:mb-0">
             <a
               v-if="$route.path === '/'"
-              href="/#projects"
-              v-scroll-to="'#projects'"
-              class="text-copy-primary hover:text-gray-600"
-              >proyectos
+              href="/#about"
+              v-scroll-to="'#about'"
+              class="text-color-primary hover:text-gray-600"
+              >Sobre mí
             </a>
           </li>
 
           <li class="mr-8 mb-6 lg:mb-0">
             <a
               v-if="$route.path === '/'"
-              href="/#about"
-              v-scroll-to="'#about'"
-              class="text-copy-primary hover:text-gray-600"
-              >Sobre mí
+              href="/#projects"
+              v-scroll-to="'#projects'"
+              class="text-color-primary hover:text-gray-600"
+              >proyectos
             </a>
           </li>
 
@@ -75,7 +78,7 @@
               v-if="$route.path === '/'"
               href="/#contact"
               v-scroll-to="'#contact'"
-              class="text-copy-primary hover:text-gray-600"
+              class="text-color-primary hover:text-gray-600"
               >Contactame
             </a>
           </li>
@@ -85,12 +88,12 @@
             <g-link
               v-if="$route.path !== '/'"
               to="/"
-              class="text-copy-primary hover:text-gray-600"
+              class="text-color-primary hover:text-gray-600"
               >Inicio
             </g-link>
           </li> -->
           <!-- <li>
-            <g-link to="/blog" class="text-copy-primary hover:text-gray-600">Blog</g-link>
+            <g-link to="/blog" class="text-color-primary hover:text-gray-600">Blog</g-link>
           </li> -->
         </ul>
       </nav>

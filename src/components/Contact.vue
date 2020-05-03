@@ -7,9 +7,9 @@
     </svg>
 
     <div class="contact bg-background-tertiary pt-10">
-      <div class="mx-auto text-xl container-inner relative">
-        <h2 class="font-bold mb-6 text-center">Contactame</h2>
-        <h3 class="mb-6">
+      <div class="container-inner mx-auto relative">
+        <h2 class="text-2xl font-bold mb-6 text-center">Contactame</h2>
+        <h3 class="text-xl mb-6">
           Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
           posible.
         </h3>
@@ -27,7 +27,7 @@
           <form class="mb-12" @submit.prevent="submit">
             <div class="flex flex-wrap mb-6 -mx-4">
               <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
-                <label class="block mb-2 text-copy-primary" for="name">
+                <label class="block mb-2 text-color-primary" for="name">
                   Nombre
                 </label>
                 <input
@@ -42,7 +42,7 @@
               </div>
 
               <div class="w-full px-4 md:w-1/2">
-                <label class="block text-copy-primary mb-2" for="email"
+                <label class="block text-color-primary mb-2" for="email"
                   >Dirección de Correo
                 </label>
                 <input
@@ -58,7 +58,7 @@
             </div>
 
             <div class="w-full mb-8">
-              <label class="block text-copy-primary mb-2" for="message">
+              <label class="block text-color-primary mb-2" for="message">
                 Mensaje
               </label>
               <textarea

@@ -29,8 +29,8 @@
   },
   {
     "title": "Register ReactJS",
-    "description": "Formulario para el registro y almacenamiento de usuarios.",
-    "content": "Capos completos de formulario, control de estado por medio de Redux y almacenamiento en la nube con Firebase.",
+    "description": "Formulario para registro y almacenamiento de usuarios.",
+    "content": "Validación completa de campos, control de estado con Redux y almacenamiento en la nube con Firebase.",
     "links": ["https://github.com/EdixonAlberto/register-react"],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/register-react/master/docs/pantalla1.png"
   }

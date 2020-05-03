@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="text-copy-primary hover:text-gray-600" @click.prevent="toggleTheme">
+  <a href="#" class="text-color-primary hover:text-gray-600" @click.prevent="toggleTheme">
     <svg
       v-if="theme === 'theme-light'"
       xmlns="http://www.w3.org/2000/svg"
