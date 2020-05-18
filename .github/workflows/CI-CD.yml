@@ -18,6 +18,7 @@ jobs:
           yarn run build
         env:
           GRIDSOME_API_URL: ${{ secrets.API_URL }}
+          GRIDSOME_API_KEY: ${{ secrets.API_KEY }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3

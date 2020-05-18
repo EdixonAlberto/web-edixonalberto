@@ -148,15 +148,21 @@ export default {
     },
 
     async sendMail(mail) {
-      const url = process.env.GRIDSOME_API_URL;
       const errorMessage =
         'Ha ocurrido un error y no se ha podido enviar su correo.\n' +
         'Por favor pulse enviar de nuevo.';
 
       try {
-        const { status, data } = await axios.post(`${url}/api/send_email`, mail, {
-          headers: { 'Content-Type': 'application/json' }
-        });
+        const { status, data } = await axios.post(
+          `${process.env.GRIDSOME_API_URL}/api/send_email`,
+          mail,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              ak: process.env.GRIDSOME_API_KEY
+            }
+          }
+        );
         console.log(data);
 
         // TODO: add notification later
