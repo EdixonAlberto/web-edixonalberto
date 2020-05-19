@@ -1,6 +1,7 @@
 <template>
   <div class="overflow-x-hidden -mb-16" id="contact">
-    <svg viewBox="0 0 1695 57" class="fill-background-tertiary">
+    <!-- CURVE -->
+    <svg viewBox="0 0 1695 57" class="fill-background-tertiary -mb-1">
       <path
         d="M0 23c135.4 19 289.6 28.5 462.5 28.5C721.9 51.5 936.7 1 1212.2 1c183.6-.1 344.5 7.3 482.8 22v34H0V23z"
       ></path>
@@ -10,10 +11,9 @@
       <div class="container-inner mx-auto relative">
         <h2 class="text-2xl font-bold mb-6 text-center">Contactame</h2>
         <h3 class="text-xl mb-6">
-          Para comunicarte conmigo, escribeme un correo electrónico, responderé lo antes
-          posible.
+          Escribeme un correo electrónico, responderé lo antes posible.
         </h3>
-
+        <!-- TRIANGLE -->
         <div
           class="absolute right-0 top-0 mt-2"
           style="transform: translate(100%) rotate(180deg)"
@@ -24,6 +24,7 @@
         </div>
 
         <div class="text-lg sm:text-lg mb-16">
+          <!-- FORM -->
           <form class="mb-12" @submit.prevent="submit">
             <div class="flex flex-wrap mb-6 -mx-4">
               <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">

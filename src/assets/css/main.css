@@ -8,7 +8,7 @@
   --bg-background-tertiary: #e2e8f0;
   --bg-background-form: white;
   --text-color-primary: #2d3748;
-  --text-color-secondary: #2c7a7b;
+  --text-color-secondary: #285e61;
   --border-border-color-primary: white;
 }
 .theme-light .search-highlighted {
@@ -64,19 +64,21 @@ nav .active {
   padding-right: 1rem;
 }
 
+/********************************** SCROOLL DESIGN **************************************/
+
 /* TODO: aplicar reglas de scroll para otros navegadores */
 
 ::-webkit-scrollbar {
-  width: 0.625rem;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
   @apply bg-green-700;
-  border-radius: 10px;
 }
-
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-green-800;
+  @apply bg-green-600;
 }
 
 /************************************ RESPONSIVE ****************************************/

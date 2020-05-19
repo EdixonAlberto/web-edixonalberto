@@ -38,17 +38,18 @@
         </div>
         <div class="flex-1 text-lg text-base ml-6">
           <p>
-            Mi nombre es
-            <span class="">Edixon Alberto Piña Hernandez</span>, soy
-            <span class="text-color-secondary">ingeniero electrónico en computación</span>
+            Mi nombre es Edixon Alberto Piña Hernandez, soy
+            <span class="font-bold text-color-secondary"
+              >ingeniero electrónico en computación</span
+            >
             y actualmente me dedico a tiempo completo como desarrollador de software.
           </p>
 
           <p class="mt-4">
             Realizo proyectos y presto mis servicios de forma remota a empresas en todo el
             mundo, trabajando en el diseño, desarrollo y mantenimiento de software tanto
-            en el <span class="text-color-secondary">frontend</span> como en el
-            <span class="text-color-secondary">backend</span>.
+            en el <span class="font-bold text-color-secondary">frontend</span> como en el
+            <span class="font-bold text-color-secondary">backend</span>.
           </p>
 
           <p class="mt-4">
