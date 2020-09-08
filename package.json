@@ -22,7 +22,7 @@
     "lint": "prettier --write \"./src/**/*.{js,vue,json,md}\" \"./**/*.{js,json}\"",
     "build": "gridsome build",
     "explore": "gridsome explore",
-    "start:dev": "clear && gridsome develop",
+    "start": "clear && gridsome develop",
     "start:prod": "yarn run build && live-server ./dist",
     "deploy": "gh-pages -o github -d ./dist"
   },

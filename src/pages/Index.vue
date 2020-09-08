@@ -39,9 +39,9 @@
         <div class="flex-1 text-lg text-base ml-6">
           <p>
             Mi nombre es Edixon Alberto Piña Hernandez, soy
-            <span class="font-bold text-color-secondary"
-              >ingeniero electrónico en computación</span
-            >
+            <span class="font-bold text-color-secondary">
+              ingeniero electrónico en computación
+            </span>
             y actualmente me dedico a tiempo completo como desarrollador de software.
           </p>
 
