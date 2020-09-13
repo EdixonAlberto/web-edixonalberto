@@ -6,8 +6,6 @@
 
 const tailwind = require('tailwindcss');
 
-const postcssPlugins = [tailwind()];
-
 module.exports = {
   siteName: 'Personal Website',
   siteDescription: 'Personal website and programming blog',
@@ -17,8 +15,9 @@ module.exports = {
   css: {
     loaderOptions: {
       postcss: {
-        plugins: postcssPlugins
+        plugins: [tailwind()]
       }
     }
-  }
+  },
+  port: 80
 };

@@ -38,7 +38,8 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       green: colors.teal,
-      gray: colors.gray
+      gray: colors.gray,
+      red: colors.red
     },
     fill: (theme) => theme('colors'), // To change the color in a svg image dynamically
     fontFamily: {
