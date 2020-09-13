@@ -1,6 +1,5 @@
 <template>
   <div class="overflow-x-hidden -mb-16" id="contact">
-    <!-- CURVE -->
     <svg viewBox="0 0 1695 57" class="fill-background-tertiary -mb-1">
       <path
         d="M0 23c135.4 19 289.6 28.5 462.5 28.5C721.9 51.5 936.7 1 1212.2 1c183.6-.1 344.5 7.3 482.8 22v34H0V23z"
@@ -13,7 +12,6 @@
         <h3 class="text-xl mb-6">
           Escribeme un correo electrónico, responderé lo antes posible.
         </h3>
-        <!-- TRIANGLE -->
         <div
           class="absolute right-0 top-0 mt-2"
           style="transform: translate(100%) rotate(180deg)"
@@ -24,7 +22,6 @@
         </div>
 
         <div class="text-lg sm:text-lg mb-16">
-          <!-- FORM -->
           <form class="mb-12" @submit.prevent="submit">
             <div class="flex flex-wrap mb-6 -mx-4">
               <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
@@ -43,8 +40,8 @@
               </div>
 
               <div class="w-full px-4 md:w-1/2">
-                <label class="block text-color-primary mb-2" for="email"
-                  >Dirección de Correo
+                <label class="block text-color-primary mb-2" for="email">
+                  Dirección de Correo
                 </label>
                 <input
                   id="email"
@@ -74,9 +71,13 @@
             </div>
 
             <div class="flex justify-end w-full">
-              <input
+              <vue-recaptcha
+                sitekey="6LeAjssZAAAAAI4PHblbJksqpmTKn6UCoGh26DEx"
+                :loadRecaptchaScript="true"
+              ></vue-recaptcha>
+
+              <button
                 type="submit"
-                value="Enviar"
                 class="block bg-green-700 text-white text-sm font-semibold tracking-wide uppercase shadow rounded  px-6 py-3 mb-8"
                 :class="[
                   sendingEmail
@@ -84,7 +85,9 @@
                     : 'hover:bg-green-800 cursor-pointer'
                 ]"
                 :disabled="sendingEmail"
-              />
+              >
+                Enviar
+              </button>
             </div>
           </form>
         </div>
@@ -104,10 +107,12 @@ query {
 <script>
 import axios from 'axios';
 import Section from '@/layouts/Section';
+import VueRecaptcha from 'vue-recaptcha';
 
 export default {
   components: {
-    Section
+    Section,
+    VueRecaptcha
   },
   data() {
     return {

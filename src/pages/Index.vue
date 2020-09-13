@@ -92,9 +92,9 @@
 
 <script>
 import Section from '@/layouts/Section';
-import Projects from '@/components/Projects';
-import Companies from '@/components/Companies';
-import Contact from '@/components/Contact';
+import Projects from '@/templates/Home/Projects';
+import Companies from '@/templates/Home/Companies';
+import Contact from '@/templates/Home/Contact';
 
 export default {
   components: {
