@@ -76,8 +76,8 @@
           <li class="mr-2 mb-6 lg:mb-0">
             <a
               v-if="$route.path === '/'"
-              href="/#contact"
-              v-scroll-to="'#contact'"
+              href="/#contactme"
+              v-scroll-to="'#contactme'"
               class="text-color-primary hover:text-gray-600"
               >Contactame
             </a>
@@ -106,15 +106,10 @@
 
     <!-- FOOTER -->
     <footer class="bg-green-700 text-white">
-      <div
-        class="container mx-auto flex flex-col sm:flex-row items-center justify-between py-8"
-      >
-        <div class="mb-8 sm:mb-0 text-center">
+      <div class="container mx-auto text-center py-8">
+        <div class="mb-8 sm:mb-0">
           &copy; 2020 by edixonalberto.com. All rights reserved.
         </div>
-
-        <!-- SOCIAL-NETWORKS -->
-        <social-networks />
       </div>
     </footer>
 
@@ -135,13 +130,11 @@
 <script>
 // import SearchInput from '@/components/SearchInput';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
-import SocialNetworks from '@/components/SocialNetworks';
 
 export default {
   components: {
     // SearchInput,
-    ThemeSwitcher,
-    SocialNetworks
+    ThemeSwitcher
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light';
@@ -163,4 +156,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/css/main.css" />
+<style lang="scss" src="@/assets/scss/main.scss" />

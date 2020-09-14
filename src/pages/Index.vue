@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    <!-- HERO -->
     <div
       class="hero container-inner mx-auto justify-between text-2xl sm:text-4xl font-bold
       py-4 sm:pt-24 sm:pb-48"
@@ -26,7 +25,6 @@
       </div>
     </div>
 
-    <!-- ABOUT -->
     <Section id="about" title="Sobre mí" triangulePos="l" :separator="true">
       <div class="flex flex-col sm:flex-row justify-between items-center">
         <div>
@@ -36,7 +34,7 @@
             class="w-32 h-32 rounded-full mb-8 lg:mb-0"
           />
         </div>
-        <div class="flex-1 text-lg text-base ml-6">
+        <div class="flex-1 text-lg ml-6">
           <p>
             Mi nombre es Edixon Alberto Piña Hernandez, soy
             <span class="font-bold text-color-secondary">
@@ -61,7 +59,6 @@
         </div>
       </div>
 
-      <!-- COMPANIES -->
       <companies />
     </Section>
 
@@ -74,7 +71,6 @@
     >
     </Section> -->
 
-    <!-- PROJECTS -->
     <Section
       id="projects"
       title="Proyectos"
@@ -85,8 +81,7 @@
       <projects />
     </Section>
 
-    <!-- CONTACT -->
-    <contact />
+    <contactme id="contactme" />
   </Layout>
 </template>
 
@@ -94,14 +89,14 @@
 import Section from '@/layouts/Section';
 import Projects from '@/templates/Home/Projects';
 import Companies from '@/templates/Home/Companies';
-import Contact from '@/templates/Home/Contact';
+import Contactme from '@/templates/Home/Contactme';
 
 export default {
   components: {
     Section,
     Projects,
     Companies,
-    Contact
+    Contactme
   },
   metaInfo: {
     title: 'edixonalberto.com'
