@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'colors.scss';
 
 .theme-light {
   --bg-background-primary: white;
@@ -10,12 +11,14 @@
   --text-color-primary: #2d3748;
   --text-color-secondary: #285e61;
   --border-border-color-primary: white;
-}
-.theme-light .search-highlighted {
-  background: #f0fff4;
-}
-.theme-light .search-hover:hover {
-  background: #f0fff4;
+
+  .search-highlighted {
+    background: #f0fff4;
+  }
+
+  .search-hover:hover {
+    background: #f0fff4;
+  }
 }
 
 .theme-dark {
@@ -26,16 +29,18 @@
   --text-color-primary: #cbd5e0;
   --text-color-secondary: #38b2ac;
   --border-border-color-primary: #1a202c;
-}
-.theme-dark .search-highlighted {
-  background: #2d3748;
-}
-.theme-dark .search-hover:hover {
-  background: #2d3748;
-}
 
-.theme-dark .markdown-body {
-  color: #24292e;
+  .search-highlighted {
+    background: #2d3748;
+  }
+
+  .search-hover:hover {
+    background: #2d3748;
+  }
+
+  .markdown-body {
+    color: #24292e;
+  }
 }
 
 /* .theme-dark .markdown-body {
@@ -47,16 +52,18 @@
 }
 
 a {
-  @apply text-green-600 font-bold;
-}
+  @apply text-green-600;
+  @apply font-bold;
 
-a:hover {
-  @apply text-green-800;
+  &:hover {
+    @apply text-green-800;
+  }
 }
 
 nav .active {
   font-weight: bold;
-  @apply border-black border-b;
+  @apply border-black;
+  @apply border-b;
 }
 
 .container-inner {
@@ -71,12 +78,15 @@ nav .active {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   @apply bg-green-700;
 }
+
 ::-webkit-scrollbar-track {
   background: #e2e8f0;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-green-600;
 }
@@ -88,11 +98,13 @@ nav .active {
     max-width: 640px;
   }
 }
+
 @media (min-width: 768px) {
   .container-inner {
     max-width: 768px;
   }
 }
+
 @media (min-width: 1024px) {
   .container-inner {
     max-width: 983px;
@@ -104,11 +116,13 @@ nav .active {
   background-repeat: no-repeat;
   @apply pl-10;
 }
+
 .responsive-container {
   position: relative;
   overflow: hidden;
   padding-top: 56.25%;
 }
+
 .responsive-iframe {
   position: absolute;
   top: 0;

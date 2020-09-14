@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <ul class="text-center  mx-auto text-lg sm:text-xl">
+    <ul class="text-center mx-auto text-lg sm:text-xl">
       <li v-for="(company, index) in companies" :key="index" class="inline">
         <a
           class="opacity-75 hover:opacity-100 m-4"
