@@ -13,7 +13,8 @@
   "main": "src/main.js",
   "author": {
     "name": "Edixon Alberto",
-    "email": "edixonalbertto@gmail.com"
+    "email": "edixonalbertto@gmail.com",
+    "url": "https://www.edixonalberto.com"
   },
   "license": "UNLICENSED",
   "private": true,

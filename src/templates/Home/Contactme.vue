@@ -106,7 +106,7 @@
               </p>
               <p>
                 <strong>Email:</strong>
-                edixonalbertto@gmail.com
+                {{ email }}
               </p>
               <p>
                 <strong>Horario:</strong>
@@ -125,6 +125,7 @@
 <script>
 import SocialNetworks from '@/components/SocialNetworks';
 import VueRecaptcha from 'vue-recaptcha';
+import networks from '@/data/networks.json';
 
 export default {
   name: 'Contactme',
@@ -136,7 +137,8 @@ export default {
 
   data() {
     return {
-      sendingEmail: false
+      sendingEmail: false,
+      email: networks.email.link
     };
   },
 

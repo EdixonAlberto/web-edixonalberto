@@ -1,32 +1,27 @@
-[
-  {
-    "name": "Email",
+{
+  "email": {
     "icon": "envelope",
     "username": "Edixon Piña",
     "link": "edixonalbertto@gmail.com"
   },
-  {
-    "name": "Linkedin",
+  "linkedin": {
     "icon": "linkedin-in",
     "username": "EdixonAlberto",
     "link": "https://www.linkedin.com/in/edixonalberto"
   },
-  {
-    "name": "Github",
+  "github": {
     "icon": "github",
     "username": "EdixonAlberto",
     "link": "https://github.com/EdixonAlberto"
   },
-  {
-    "name": "Twitter",
+  "twitter": {
     "icon": "twitter",
     "username": "@EdixonAlbertto",
     "link": "https://twitter.com/EdixonAlbertto"
   },
-  {
-    "name": "Instagram",
+  "instagram": {
     "icon": "instagram",
     "username": "@edixonalberto",
     "link": "https://www.instagram.com/edixonalbertto"
   }
-]
+}

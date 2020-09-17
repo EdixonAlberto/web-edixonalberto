@@ -1,14 +1,14 @@
 <template>
   <div class="social-container">
     <div class="grid grid-cols-5">
-      <div class="icon" v-for="(social, i) of socialNetworks" :key="i">
+      <div class="icon" v-for="(network, key, i) in networks" :key="i">
         <a
           class="text-white hover:text-gray-400"
           target="_blank"
-          :href="social.name === 'Email' ? `mailto:${social.link}` : social.link"
-          :title="`${social.name} | ${social.username}`"
+          :href="key === 'email' ? `mailto:${network.link}` : network.link"
+          :title="`${key.toUpperCase()} | ${network.username}`"
         >
-          <font-awesome :icon="[social.name === 'Email' ? 'far' : 'fab', social.icon]" />
+          <font-awesome :icon="[key === 'email' ? 'far' : 'fab', network.icon]" />
         </a>
       </div>
     </div>
@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import socialNetworks from '@/data/socialNetworks.json';
+import networks from '@/data/networks.json';
 
 export default {
   data() {
     return {
-      socialNetworks
+      networks
     };
   }
 };
