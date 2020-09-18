@@ -14,6 +14,7 @@ import {
   faInstagram
 } from '@fortawesome/free-brands-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Vuelidate from 'vuelidate';
 
 config.autoAddCss = false;
 library.add(faEnvelope, faLinkedinIn, faGithub, faTwitter, faInstagram, faSpinner);
@@ -27,6 +28,8 @@ export default function(Vue, { router, head, isClient }) {
     duration: 500,
     easing: 'ease'
   });
+
+  Vue.use(Vuelidate);
 
   head.link.push({
     rel: 'stylesheet',

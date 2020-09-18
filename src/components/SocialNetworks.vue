@@ -1,7 +1,11 @@
 <template>
   <div class="social-container">
     <div class="grid grid-cols-5">
-      <div class="icon" v-for="(network, key, i) in networks" :key="i">
+      <div
+        class="icon md:text-left text-center"
+        v-for="(network, key, i) in networks"
+        :key="i"
+      >
         <a
           class="text-white hover:text-gray-400"
           target="_blank"
@@ -31,12 +35,10 @@ export default {
 @import '@/assets/scss/colors';
 
 .social-container {
-  margin-top: 35px;
+  margin-top: 30px;
 }
 
 .icon {
-  text-align: left;
-
   & > a {
     margin-top: 20px;
     padding: 9px 10px;

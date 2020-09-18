@@ -2,7 +2,7 @@
   <div class="overflow-x-hidden mx-auto font-sans">
     <svg
       id="curve"
-      class="fill-background-tertiary -mb-1"
+      class="md:block hidden fill-background-tertiary -mb-1"
       data-name="curve"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1695 57"
@@ -14,13 +14,15 @@
       </path>
     </svg>
 
-    <div class="grid grid-rows-4 text-center bg-background-tertiary px-10 pb-10">
+    <div
+      class="grid md:grid-rows-4 grid-rows-6 text-center bg-background-tertiary md:px-10 px-6 pb-10"
+    >
       <div class="row-span-1 self-center">
         <h1 class="text-2xl font-bold text-tailwind">Contactame</h1>
       </div>
 
-      <div class="row-span-3">
-        <div class="grid col-gap-16 grid-cols-2 gap-4">
+      <div class="md:row-span-3 row-span-5">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-16">
           <section class="form m-0">
             <form @submit.prevent="submit" autocomplete="off">
               <input
@@ -33,7 +35,17 @@
                 name="name"
                 placeholder="Nombre:"
                 required
+                v-model.trim="$v.name.$model"
               />
+              <div v-if="$v.name.$error">
+                <div class="input-error" v-if="!$v.name.required">
+                  - Campo es requerido
+                </div>
+                <div class="input-error" v-if="!$v.name.minLength">
+                  - El nombre debe tener al menos
+                  {{ $v.name.$params.minLength.min }} letras.
+                </div>
+              </div>
 
               <input
                 :class="[
@@ -45,7 +57,17 @@
                 name="email"
                 placeholder="Correo:"
                 required
+                v-model.trim="$v.email.$model"
               />
+
+              <div v-if="$v.email.$error">
+                <div class="input-error" v-if="!$v.email.required">
+                  - Campo es requerido
+                </div>
+                <div class="input-error" v-if="!$v.email.emailFormat">
+                  - El correo no tiene un formato válido.
+                </div>
+              </div>
 
               <textarea
                 :class="[
@@ -58,8 +80,12 @@
                 cols="70"
                 rows="10"
                 required
+                v-model.trim="$v.message.$model"
               >
               </textarea>
+              <div class="input-error" v-if="!$v.message.required && $v.message.$error">
+                - Campo es requerido
+              </div>
 
               <!-- <vue-recaptcha
                 class="mb-3 inline-flex"
@@ -91,9 +117,9 @@
 
           <section class="info text-left">
             <p class="text-lg text-tailwind">
-              Si quieres llevar tus ideas al mundo digital, escribeme.
+              Si quieres llevar tus ideas al mundo digital, enviame tu propuesta.
             </p>
-            <p class="text-4xl mt-4">Datos de contacto</p>
+            <p class="text-4xl md:text-left text-center mt-4">Datos de contacto</p>
 
             <article class="data">
               <p>
@@ -106,7 +132,7 @@
               </p>
               <p>
                 <strong>Email:</strong>
-                {{ email }}
+                {{ myEmail }}
               </p>
               <p>
                 <strong>Horario:</strong>
@@ -123,23 +149,46 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { required, minLength } from 'vuelidate/lib/validators';
 import SocialNetworks from '@/components/SocialNetworks';
-import VueRecaptcha from 'vue-recaptcha';
+// import VueRecaptcha from 'vue-recaptcha';
 import networks from '@/data/networks.json';
 
 export default {
   name: 'Contactme',
 
   components: {
-    SocialNetworks,
-    VueRecaptcha
+    SocialNetworks
+    // VueRecaptcha
   },
 
   data() {
     return {
       sendingEmail: false,
-      email: networks.email.link
+      myEmail: networks.email.link,
+      name: '',
+      email: '',
+      message: ''
     };
+  },
+
+  // mounted() {
+  //   this.$v.$reset();
+  // },
+
+  validations: {
+    name: {
+      required,
+      minLength: minLength(8)
+    },
+    email: {
+      required,
+      emailFormat: (email) => new RegExp(/^[a-z0-9_.]+\@[a-z]+\.com$/).test(email)
+    },
+    message: {
+      required
+    }
   },
 
   methods: {
@@ -147,42 +196,24 @@ export default {
       // block button
       this.sendingEmail = true;
 
-      setTimeout(() => {
-        this.sendingEmail = false;
-      }, 3000);
+      // Prepare data
+      const mail = {
+        from: this.email,
+        to: this.myEmail,
+        subject: `${this.name} | from edixonalberto.com`,
+        message: this.message
+      };
 
-      // get values
-      // const form = e.target;
-      // const [name, email, message] = form.elements;
-
-      // TODO: filter and clean data
-
-      // Prepare mail
-      // const mail = {
-      //   from: email.value,
-      //   to: this.$static.metadata.personalEmail,
-      //   subject: `${name.value} | from edixonalberto.com`,
-      //   message: message.value
-      // };
-
-      // const correct = await this.sendMail(mail);
-      // if (correct) form.reset();
-      // this.sendingEmail = false;
-
-      // TODO: adding security and validations
-      // for (var input of inputs) {
-      //   console.log(input);
-      //   if (input.value === '') {
-      //     fieldsFull = false;
-      //     break;
-      //   }
-      // }
+      const correct = await this.sendMail(mail);
+      if (correct) this.resetForm();
+      this.sendingEmail = false;
     },
 
     async sendMail(mail) {
       const errorMessage =
         'Ha ocurrido un error y no se ha podido enviar su correo.\n' +
-        'Por favor pulse enviar de nuevo.';
+        'Por favor intentelo de nuevo.';
+      const errorServer = 'No se puede establecer comunicación con el servidor';
 
       try {
         const { status, data } = await axios.post(
@@ -190,27 +221,32 @@ export default {
           mail,
           {
             headers: {
+              Accept: 'application/json',
               'Content-Type': 'application/json',
               ak: process.env.GRIDSOME_API_KEY
             }
           }
         );
-        console.log(data);
 
-        // TODO: add notification later
+        // TODO: reemplazar los "alert()" por tarjetas o animaciones.
         if (status === 200) {
           alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
           return true;
         } else {
+          console.warn('WARN-SEND-MAIL ->', data);
           alert(errorMessage);
           return false;
         }
       } catch (error) {
-        console.error(error.message);
-        alert(errorMessage);
+        console.error('ERROR-SEND-MAIL ->', error.message);
+        alert(errorServer);
         return false;
       }
-      // TODO: reemplazar los "alert()" por tarjetas o animaciones.
+    },
+
+    resetForm() {
+      (this.name = ''), (this.email = ''), (this.message = '');
+      this.$v.$reset();
     }
   }
 };
@@ -218,6 +254,18 @@ export default {
 
 <style lang="scss" scoped>
 section.form {
+  input,
+  textarea {
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+
+  .input-error {
+    @apply text-red-700;
+    text-align: left;
+    margin-left: 10px;
+  }
+
   button {
     transition: all 0.5s ease;
 
