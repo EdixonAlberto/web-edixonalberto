@@ -4,7 +4,6 @@
     leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
-    <!-- HEADER -->
     <header class="border-t-14 border-green-700">
       <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
         <div>
@@ -37,7 +36,6 @@
           </button>
         </div>
 
-        <!-- NAVBAR -->
         <ul
           class="uppercase tracking-wide font-bold w-full block flex-grow lg:flex
           lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0"
@@ -99,17 +97,13 @@
       </nav>
     </header>
 
-    <!-- CONTENT -->
     <div class="flex-grow">
       <slot />
     </div>
 
-    <!-- FOOTER -->
     <footer class="bg-green-700 text-white">
       <div class="container mx-auto text-center py-8">
-        <div class="mb-8 sm:mb-0">
-          &copy; 2020 by edixonalberto.com. All rights reserved.
-        </div>
+        <span>&copy; 2020 by edixonalberto.com. All rights reserved.</span>
       </div>
     </footer>
 

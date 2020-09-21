@@ -87,12 +87,6 @@
                 - Campo es requerido
               </div>
 
-              <!-- <vue-recaptcha
-                class="mb-3 inline-flex"
-                sitekey="6LeAjssZAAAAAI4PHblbJksqpmTKn6UCoGh26DEx"
-                :loadRecaptchaScript="true"
-              ></vue-recaptcha> -->
-
               <button
                 type="submit"
                 :class="[
@@ -115,11 +109,11 @@
             </form>
           </section>
 
-          <section class="info text-left">
+          <section class="info md:text-left text-center">
             <p class="text-lg text-tailwind">
               Si quieres llevar tus ideas al mundo digital, enviame tu propuesta.
             </p>
-            <p class="text-4xl md:text-left text-center mt-4">Datos de contacto</p>
+            <p class="text-4xl mt-4">Datos de contacto</p>
 
             <article class="data">
               <p>
@@ -152,7 +146,6 @@
 import axios from 'axios';
 import { required, minLength } from 'vuelidate/lib/validators';
 import SocialNetworks from '@/components/SocialNetworks';
-// import VueRecaptcha from 'vue-recaptcha';
 import networks from '@/data/networks.json';
 
 export default {
@@ -160,7 +153,6 @@ export default {
 
   components: {
     SocialNetworks
-    // VueRecaptcha
   },
 
   data() {
@@ -184,7 +176,7 @@ export default {
     },
     email: {
       required,
-      emailFormat: (email) => new RegExp(/^[a-z0-9_.]+\@[a-z]+\.com$/).test(email)
+      emailFormat: (email) => new RegExp(/^$|^[a-z0-9_.]+\@[a-z]+\.com$/).test(email)
     },
     message: {
       required
@@ -196,17 +188,67 @@ export default {
       // block button
       this.sendingEmail = true;
 
-      // Prepare data
-      const mail = {
-        from: this.email,
-        to: this.myEmail,
-        subject: `${this.name} | from edixonalberto.com`,
-        message: this.message
-      };
+      try {
+        const verifed = await this.captchaVerify();
+        console.log(verifed);
 
-      const correct = await this.sendMail(mail);
-      if (correct) this.resetForm();
+        if (verifed) {
+          // Prepare data
+          const mail = {
+            from: this.email,
+            to: this.myEmail,
+            subject: `${this.name} | from edixonalberto.com`,
+            message: this.message
+          };
+
+          // Send email
+          const correct = await this.sendMail(mail);
+          if (correct) this.resetForm();
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+
       this.sendingEmail = false;
+    },
+
+    async captchaVerify() {
+      return new Promise((resolve, reject) => {
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute('6LeAjssZAAAAAI4PHblbJksqpmTKn6UCoGh26DEx', {
+              action: 'submit'
+            })
+            .then(async (token) => {
+              const { data } = await axios.post(
+                'https://www.google.com/recaptcha/api/siteverify',
+                {
+                  params: {
+                    secret: '6LeAjssZAAAAAIbeOZq8DoYSVWl537sW7XuFnoXn',
+                    response: token
+                  }
+                }
+              );
+
+              console.log(data);
+              if (data.success) resolve(true);
+              else {
+                console.warn('WARN-RECAPTCHA ->', data['error-codes']);
+                alert('Error en la verificación de reCAPTCHA');
+                reject(false);
+              }
+            })
+            .catch((error) => {
+              console.error('ERROR-RECAPTCHA ->', error);
+              reject(
+                new Error(
+                  'No se puede conectar con reCAPTCHA. ' +
+                    'Comprueba tu conexión e inténtalo de nuevo.'
+                )
+              );
+            });
+        });
+      });
     },
 
     async sendMail(mail) {
@@ -239,8 +281,7 @@ export default {
         }
       } catch (error) {
         console.error('ERROR-SEND-MAIL ->', error.message);
-        alert(errorServer);
-        return false;
+        throw new Error(errorServer);
       }
     },
 
@@ -256,14 +297,26 @@ export default {
 section.form {
   input,
   textarea {
-    margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 6px;
+  }
+
+  input {
+    margin-bottom: 26px;
+  }
+
+  textarea {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 10px;
   }
 
   .input-error {
     @apply text-red-700;
     text-align: left;
     margin-left: 10px;
+    margin-top: -24px;
   }
 
   button {

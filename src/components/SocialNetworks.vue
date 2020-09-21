@@ -35,14 +35,13 @@ export default {
 @import '@/assets/scss/colors';
 
 .social-container {
-  margin-top: 30px;
+  margin-top: 39px;
 }
 
 .icon {
   & > a {
     margin-top: 20px;
     padding: 9px 10px;
-    vertical-align: middle;
     border-radius: 50%;
     background-color: white;
     box-shadow: 1px 1px 7px 1px $color-primary;
