@@ -23,7 +23,7 @@
 
       <div class="md:row-span-3 row-span-5">
         <div class="grid md:grid-cols-2 grid-cols-1 gap-16">
-          <section class="form m-0">
+          <section class="form text-black m-0">
             <form @submit.prevent="submit" autocomplete="off">
               <input
                 :class="[
@@ -65,7 +65,7 @@
                   - Campo es requerido
                 </div>
                 <div class="input-error" v-if="!$v.email.emailFormat">
-                  - El correo no tiene un formato válido.
+                  - El correo no tiene un formato válido. Ejemplo: email@example.com
                 </div>
               </div>
 
@@ -130,7 +130,7 @@
               </p>
               <p>
                 <strong>Horario:</strong>
-                De Lunes a Viernes, de 8:00 a 17:00
+                De Lunes a Viernes, de 8:00 a 18:00
               </p>
             </article>
 
@@ -165,10 +165,6 @@ export default {
     };
   },
 
-  // mounted() {
-  //   this.$v.$reset();
-  // },
-
   validations: {
     name: {
       required,
@@ -184,20 +180,19 @@ export default {
   },
 
   methods: {
-    async submit(e) {
+    async submit() {
       // block button
       this.sendingEmail = true;
 
       try {
         const verifed = await this.captchaVerify();
-        console.log(verifed);
 
         if (verifed) {
           // Prepare data
           const mail = {
             from: this.email,
             to: this.myEmail,
-            subject: `${this.name} | from edixonalberto.com`,
+            subject: `Nuevo correo de ${this.name} <${this.email}>`,
             message: this.message
           };
 
@@ -216,21 +211,20 @@ export default {
       return new Promise((resolve, reject) => {
         grecaptcha.ready(() => {
           grecaptcha
-            .execute('6LeAjssZAAAAAI4PHblbJksqpmTKn6UCoGh26DEx', {
+            .execute(process.env.GRIDSOME_API_KEY_RECAPTCHA_FRONT, {
               action: 'submit'
             })
             .then(async (token) => {
-              const { data } = await axios.post(
-                'https://www.google.com/recaptcha/api/siteverify',
-                {
-                  params: {
-                    secret: '6LeAjssZAAAAAIbeOZq8DoYSVWl537sW7XuFnoXn',
-                    response: token
-                  }
-                }
-              );
+              const url =
+                'https://cors-anywhere.herokuapp.com/https://www.google.com/recaptcha/api/siteverify';
 
-              console.log(data);
+              const { data } = await axios.post(url, null, {
+                params: {
+                  secret: process.env.GRIDSOME_API_KEY_RECAPTCHA_BACK,
+                  response: token
+                }
+              });
+
               if (data.success) resolve(true);
               else {
                 console.warn('WARN-RECAPTCHA ->', data['error-codes']);
@@ -258,17 +252,16 @@ export default {
       const errorServer = 'No se puede establecer comunicación con el servidor';
 
       try {
-        const { status, data } = await axios.post(
-          `${process.env.GRIDSOME_API_URL}/api/send_email`,
-          mail,
-          {
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              ak: process.env.GRIDSOME_API_KEY
-            }
+        const url = `${process.env.GRIDSOME_PROXY ||
+          ''}https://api-email-edixonalberto.herokuapp.com/api/send_email`;
+
+        const { status, data } = await axios.post(url, mail, {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            ak: process.env.GRIDSOME_API_KEY_EMAIL
           }
-        );
+        });
 
         // TODO: reemplazar los "alert()" por tarjetas o animaciones.
         if (status === 200) {
@@ -286,7 +279,9 @@ export default {
     },
 
     resetForm() {
-      (this.name = ''), (this.email = ''), (this.message = '');
+      this.name = '';
+      this.email = '';
+      this.message = '';
       this.$v.$reset();
     }
   }

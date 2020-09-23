@@ -17,8 +17,9 @@ jobs:
           yarn install
           yarn run build
         env:
-          GRIDSOME_API_URL: ${{ secrets.API_URL }}
-          GRIDSOME_API_KEY: ${{ secrets.API_KEY }}
+          GRIDSOME_API_KEY_EMAIL: ${{ secrets.API_KEY_EMAIL }}
+          GRIDSOME_API_KEY_RECAPTCHA_FRONT: ${{ secrets.API_KEY_RECAPTCHA_FRONT }}
+          GRIDSOME_API_KEY_RECAPTCHA_BACK: ${{ secrets.API_KEY_RECAPTCHA_BACK }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
