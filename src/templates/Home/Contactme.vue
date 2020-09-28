@@ -184,24 +184,24 @@ export default {
       // block button
       this.sendingEmail = true;
 
-      try {
-        const verifed = await this.captchaVerify();
+      const verifed = await this.captchaVerify();
 
-        if (verifed) {
-          // Prepare data
-          const mail = {
-            from: this.email,
-            to: this.myEmail,
-            subject: `Nuevo correo de ${this.name} <${this.email}>`,
-            message: this.message
-          };
+      if (verifed) {
+        // Prepare data
+        const mail = {
+          from: this.email,
+          to: this.myEmail,
+          subject: `Nuevo correo de ${this.name} <${this.email}>`,
+          message: this.message
+        };
 
-          // Send email
-          const correct = await this.sendMail(mail);
-          if (correct) this.resetForm();
+        // Send email
+        const correct = await this.sendMail(mail);
+
+        if (correct) {
+          alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
+          this.resetForm();
         }
-      } catch (error) {
-        alert(error.message);
       }
 
       this.sendingEmail = false;
@@ -211,35 +211,37 @@ export default {
       return new Promise((resolve, reject) => {
         grecaptcha.ready(() => {
           grecaptcha
-            .execute(process.env.GRIDSOME_API_KEY_RECAPTCHA_FRONT, {
+            .execute(process.env.GRIDSOME_RECAPTCHA_API_KEY, {
               action: 'submit'
             })
             .then(async (token) => {
-              const url =
-                'https://cors-anywhere.herokuapp.com/https://www.google.com/recaptcha/api/siteverify';
+              const url = `${process.env.GRIDSOME_API_URL}/api/recaptcha_verify`;
 
-              const { data } = await axios.post(url, null, {
-                params: {
-                  secret: process.env.GRIDSOME_API_KEY_RECAPTCHA_BACK,
-                  response: token
+              const body = { response: token };
+
+              const { status, data } = await axios.post(url, body, {
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  ak: process.env.GRIDSOME_SERVER_API_KEY
                 }
               });
 
-              if (data.success) resolve(true);
+              if (status === 200 && data.type === 'Successful') resolve(true);
               else {
-                console.warn('WARN-RECAPTCHA ->', data['error-codes']);
+                console.warn('WARN-RECAPTCHA ->', data);
                 alert('Error en la verificación de reCAPTCHA');
-                reject(false);
+                resolve(false);
               }
             })
             .catch((error) => {
-              console.error('ERROR-RECAPTCHA ->', error);
-              reject(
-                new Error(
-                  'No se puede conectar con reCAPTCHA. ' +
-                    'Comprueba tu conexión e inténtalo de nuevo.'
-                )
+              console.error('ERROR-RECAPTCHA ->', error.message);
+
+              alert(
+                'No se puede conectar con reCAPTCHA. ' +
+                  'Comprueba tu conexión e inténtalo de nuevo.'
               );
+              resolve(false);
             });
         });
       });
@@ -252,29 +254,29 @@ export default {
       const errorServer = 'No se puede establecer comunicación con el servidor';
 
       try {
-        const url = `${process.env.GRIDSOME_PROXY ||
-          ''}https://api-email-edixonalberto.herokuapp.com/api/send_email`;
+        const url = `${process.env.GRIDSOME_API_URL}/api/send_email`;
 
         const { status, data } = await axios.post(url, mail, {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            ak: process.env.GRIDSOME_API_KEY_EMAIL
+            ak: process.env.GRIDSOME_SERVER_API_KEY
           }
         });
 
         // TODO: reemplazar los "alert()" por tarjetas o animaciones.
-        if (status === 200) {
-          alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
-          return true;
-        } else {
+        if (status === 200) return true;
+        else {
           console.warn('WARN-SEND-MAIL ->', data);
+
           alert(errorMessage);
           return false;
         }
       } catch (error) {
         console.error('ERROR-SEND-MAIL ->', error.message);
-        throw new Error(errorServer);
+
+        alert(errorServer);
+        return false;
       }
     },
 
