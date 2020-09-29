@@ -11,7 +11,11 @@ module.exports = {
   siteDescription: 'Personal website and programming blog',
   siteUrl: 'http://www.edixonalberto.com',
   icon: './static/favicon.png',
-  plugins: [],
+  plugins: [
+    {
+      use: 'gridsome-plugin-typescript'
+    }
+  ],
   css: {
     loaderOptions: {
       postcss: {
