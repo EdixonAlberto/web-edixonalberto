@@ -19,16 +19,19 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import networks from '@/data/networks.json';
 
-export default {
+export default Vue.extend({
+  name: 'SocialNetworks',
+
   data() {
     return {
       networks
     };
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

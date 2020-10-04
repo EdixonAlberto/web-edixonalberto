@@ -54,16 +54,19 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import projects from '@/data/projects.json';
 
-export default {
+export default Vue.extend({
+  name: 'Projects',
+
   data() {
     return {
       projects
     };
   }
-};
+});
 </script>
 
 <style scoped>

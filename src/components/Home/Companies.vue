@@ -16,16 +16,19 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import companies from '@/data/companies.json';
 
-export default {
+export default Vue.extend({
+  name: 'Companies',
+
   data() {
     return {
       companies
     };
   }
-};
+});
 </script>
 
 <style scoped>

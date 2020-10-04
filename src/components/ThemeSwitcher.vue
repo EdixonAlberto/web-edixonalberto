@@ -34,20 +34,27 @@
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'ThemeSwitcher',
+
   props: {
     theme: {
       type: String,
       required: true
     }
   },
+
   methods: {
-    toggleTheme() {
-      const newTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
+    toggleTheme(): void {
+      const newTheme: TTheme =
+        this.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
+
       localStorage.setItem('theme', newTheme);
       this.$emit('themeChanged', newTheme);
     }
   }
-};
+});
 </script>

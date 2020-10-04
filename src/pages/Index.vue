@@ -85,21 +85,23 @@
   </Layout>
 </template>
 
-<script>
-import Section from '@/layouts/Section';
-import Projects from '@/templates/Home/Projects';
-import Companies from '@/templates/Home/Companies';
-import Contactme from '@/templates/Home/Contactme';
+<script lang="ts">
+import Vue from 'vue';
+import Section from '@/layouts/Section.vue';
+import Projects from '@/components/Home/Projects.vue';
+import Companies from '@/components/Home/Companies.vue';
+import Contactme from '@/components/Home/Contactme.vue';
 
-export default {
+export default Vue.extend({
   components: {
     Section,
     Projects,
     Companies,
     Contactme
   },
+
   metaInfo: {
     title: 'edixonalberto.com'
   }
-};
+});
 </script>

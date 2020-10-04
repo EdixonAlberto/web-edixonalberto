@@ -32,8 +32,29 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['id', 'title', 'subtitle', 'triangulePos', 'separator']
-};
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'Section',
+
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    triangulePos: {
+      type: String,
+      required: true
+    },
+    separator: {
+      type: Boolean,
+      required: true
+    }
+  }
+});
 </script>

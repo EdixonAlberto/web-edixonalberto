@@ -1,6 +1,7 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
+import { VueConstructor } from 'vue';
 import DefaultLayout from '@/layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -19,7 +20,10 @@ import Vuelidate from 'vuelidate';
 config.autoAddCss = false;
 library.add(faEnvelope, faLinkedinIn, faGithub, faTwitter, faInstagram, faSpinner);
 
-export default function(Vue, { router, head, isClient }) {
+export default function(
+  Vue: VueConstructor,
+  { router, head, isClient }: { router: any[]; head: THead; isClient: boolean }
+) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
   Vue.component('font-awesome', FontAwesomeIcon);
