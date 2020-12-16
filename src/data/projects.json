@@ -1,37 +1,66 @@
 [
   {
+    "title": "Librería Instagrapi",
+    "description": "Librería para obtener información de una cuenta de instagram de una forma amigable e intuitiva",
+    "content": "",
+    "links": [
+      "https://github.com/EdixonAlberto/instagrapi",
+      "https://www.npmjs.com/package/instagrapi"
+    ],
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/instagrapi/main/.github/template-github.png"
+  },
+  {
+    "title": "Librería Concord",
+    "description": "Un micro-framework para crear bots de Discord abstrayendo la libreria discord.js. Con concord puedes crear bots para Discord rápidamente.",
+    "content": "",
+    "links": [
+      "https://github.com/EdixonAlberto/monorepo-discord-bots/tree/master/packages/concord"
+    ],
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/monorepo-discord-bots/master/.github/discord-bots.jpeg"
+  },
+  {
     "title": "Bot CoinBot",
     "description": "Bot de discord para administrar criptomonedas en el mercado de Binance.",
     "content": "",
-    "links": ["https://github.com/EdixonAlberto/coin-bot"],
+    "links": [
+      "https://github.com/EdixonAlberto/coin-bot"
+    ],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/coin-bot/dev/.github/chat-discord.png"
   },
   {
     "title": "Api Dicabeg",
     "description": "Api RESTful para la aplicación movil Dicabeg.",
     "content": "Creación de programa backend y base de datos PostgreSQL.",
-    "links": ["https://github.com/EdixonAlberto/api-dicabeg"],
+    "links": [
+      "https://github.com/EdixonAlberto/api-dicabeg"
+    ],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/api-dicabeg/v2/.github/image-preview.jpg"
   },
   {
     "title": "Doc Dicabeg",
     "description": "Pagina web estática para documentar aplicación movil Dicabeg",
     "content": "",
-    "links": ["https://github.com/EdixonAlberto/doc-dicabeg"],
+    "links": [
+      "https://github.com/EdixonAlberto/doc-dicabeg"
+    ],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/doc-dicabeg/master/.github/index-page.png"
   },
   {
     "title": "Web edixonalberto.com",
     "description": "Pagina web personal para exponer proyectos e información profesional.",
     "content": "",
-    "links": ["https://github.com/EdixonAlberto/web-edixonalberto"],
+    "links": [
+      "https://github.com/EdixonAlberto/web-edixonalberto"
+    ],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/web-edixonalberto/master/.github/index-page.png"
   },
   {
     "title": "Register ReactJS",
     "description": "Formulario para registro y almacenamiento de usuarios.",
     "content": "Validación completa de campos, control de estado con Redux y almacenamiento en la nube con Firebase.",
-    "links": ["https://github.com/EdixonAlberto/register-react"],
+    "links": [
+      "https://github.com/EdixonAlberto/register-react"
+    ],
     "image": "https://raw.githubusercontent.com/EdixonAlberto/register-react/master/docs/pantalla1.png"
   }
 ]
