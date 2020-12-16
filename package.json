@@ -58,7 +58,7 @@
     "vue-property-decorator": "^9.0.0"
   },
   "engines": {
-    "node": "^12.18.0",
+    "node": "^14.15.1",
     "yarn": "^1.22.4"
   }
 }
