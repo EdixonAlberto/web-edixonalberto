@@ -117,8 +117,8 @@
 
             <article class="data">
               <p>
-                <strong>Dirección:</strong>
-                Lara, Venezuela
+                <strong>Pais:</strong>
+                Venezuela
               </p>
               <p>
                 <strong>Número:</strong>

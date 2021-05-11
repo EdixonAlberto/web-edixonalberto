@@ -1,6 +1,6 @@
 <template>
   <div class="social-container">
-    <div class="grid grid-cols-5">
+    <div class="grid grid-cols-4">
       <div
         class="icon md:text-left text-center"
         v-for="(network, key, i) in networks"

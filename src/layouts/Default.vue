@@ -4,41 +4,25 @@
     leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
-    <header class="border-t-14 border-green-700">
-      <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
-        <div>
-          <g-link v-if="theme === 'theme-light'" to="/">
-            <g-image class="w-32 sm:w-48" src="@/assets/svg/logo_v1.svg" alt="logo" />
-          </g-link>
-
-          <g-link v-else to="/">
-            <g-image
-              class="w-32 sm:w-48"
-              src="@/assets/svg/logo_v1_dark.svg"
-              alt="logo-dark"
-            />
-          </g-link>
-        </div>
-
+    <header class="bg-green-700">
+      <nav
+        class="container mx-auto flex-row justify-end py-8"
+        :class="{ 'h-10': !isOpen }"
+      >
         <div class="block lg:hidden">
           <button
-            @click="toggle"
-            class="flex items-center px-3 py-2 border rounded border-gray-500
-            hover:text-gray-600 hover:border-gray-600"
+            class="flex items-center px-3 py-2 -mt-4 border rounded"
+            @click="isOpen = !isOpen"
           >
-            <svg
-              class="current-color h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="gray" />
+            <svg class="h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="#ffff" />
             </svg>
           </button>
         </div>
 
         <ul
           class="uppercase tracking-wide font-bold w-full block flex-grow lg:flex
-          lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0"
+          lg:flex-initial lg:w-auto items-center mt-8 lg:-mt-2"
           :class="isOpen ? 'block' : 'hidden'"
         >
           <!--TODO: SEARCH -->
@@ -56,7 +40,7 @@
               v-if="$route.path === '/'"
               href="/#about"
               v-scroll-to="'#about'"
-              class="text-color-primary hover:text-gray-600"
+              class="hover:text-gray-400"
               >Sobre mí
             </a>
           </li>
@@ -66,7 +50,7 @@
               v-if="$route.path === '/'"
               href="/#projects"
               v-scroll-to="'#projects'"
-              class="text-color-primary hover:text-gray-600"
+              class="hover:text-gray-400"
               >proyectos
             </a>
           </li>
@@ -76,7 +60,7 @@
               v-if="$route.path === '/'"
               href="/#contactme"
               v-scroll-to="'#contactme'"
-              class="text-color-primary hover:text-gray-600"
+              class="hover:text-gray-400"
               >Contactame
             </a>
           </li>
@@ -144,10 +128,6 @@ export default Vue.extend({
   },
 
   methods: {
-    toggle(): void {
-      this.isOpen = !this.isOpen;
-    },
-
     updateTheme(theme: TTheme): void {
       this.theme = theme;
     }

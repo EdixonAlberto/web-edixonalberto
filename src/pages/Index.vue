@@ -1,12 +1,11 @@
 <template>
   <Layout>
     <div
-      class="hero container-inner mx-auto justify-between text-2xl sm:text-4xl font-bold
-      py-4 sm:pt-24 sm:pb-48"
+      class="hero container-inner mx-auto flex-row justify-between text-2xl sm:text-4xl font-bold h-screen pt-32"
     >
       <div class="grid grid-cols-5 w-full text-left">
         <div class="col-span-3 leading-tight my-6">
-          <span class="block">Soy Edixon Piña</span>
+          <p class="mb-5">Edixon Piña</p>
           <span class="block sm:mt-6">Ingeniero Electrónico en Computación</span>
         </div>
 
@@ -20,23 +19,24 @@
         </div>
       </div>
 
-      <div class="text-color-secondary text-center leading-tight mt-6">
-        <span>Bienvenid@ a mi sitio web</span>
-      </div>
+      <p class="text-color-secondary text-center leading-tight mt-6">
+        Bienvenid@ a mi sitio web
+      </p>
     </div>
 
-    <Section id="about" title="Sobre mí" triangulePos="l" :separator="true">
-      <div class="flex flex-col sm:flex-row justify-between items-center">
-        <div>
+    <Section id="about" title="Sobre mí">
+      <div class="flex flex-col sm:flex-row gap-10 items-start">
+        <div class="m-auto text-center">
           <g-image
-            src="https://s.gravatar.com/avatar/9d9876b16f45d91d1cb192bf3a035548?s=400"
+            class="flex-auto w-40 h-40 rounded-full mb-8 lg:mb-0"
+            src="/images/avatar.png"
             alt="avatar"
-            class="w-32 h-32 rounded-full mb-8 lg:mb-0"
           />
         </div>
-        <div class="flex-1 text-lg ml-6">
+
+        <div class="flex-1 text-lg">
           <p>
-            Mi nombre es Edixon Alberto Piña Hernandez, soy
+            Hola, mi nombre es Edixon Piña, soy
             <span class="font-bold text-color-secondary">
               ingeniero electrónico en computación
             </span>
@@ -71,13 +71,7 @@
     >
     </Section> -->
 
-    <Section
-      id="projects"
-      title="Proyectos"
-      subtitle="Proyectos realizados"
-      triangulePos="r"
-      :separator="true"
-    >
+    <Section id="projects" title="Proyectos" subtitle="Proyectos realizados">
       <projects />
     </Section>
 
