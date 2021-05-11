@@ -10,7 +10,6 @@
     "blog",
     "portfolio"
   ],
-  "main": "src/main.js",
   "author": {
     "name": "Edixon Alberto",
     "email": "edixonalbertto@gmail.com",
@@ -23,7 +22,7 @@
     "lint": "prettier --write ./src/**/*.{js,vue,md}",
     "build": "gridsome build",
     "explore": "gridsome explore",
-    "start": "clear && gridsome develop",
+    "start": "gridsome develop",
     "start:prod": "yarn run build && live-server ./dist",
     "deploy": "gh-pages -o github -d ./dist"
   },
@@ -58,7 +57,7 @@
     "vue-property-decorator": "^9.0.0"
   },
   "engines": {
-    "node": "^14.15.1",
-    "yarn": "^1.22.4"
+    "node": "^14.0.0",
+    "yarn": "^1.22.0"
   }
 }
