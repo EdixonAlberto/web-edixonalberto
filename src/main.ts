@@ -12,13 +12,22 @@ import {
   faLinkedinIn,
   faGithub,
   faTwitter,
-  faInstagram
+  faInstagram,
+  faDiscord
 } from '@fortawesome/free-brands-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Vuelidate from 'vuelidate';
 
 config.autoAddCss = false;
-library.add(faEnvelope, faLinkedinIn, faGithub, faTwitter, faInstagram, faSpinner);
+library.add(
+  faEnvelope,
+  faLinkedinIn,
+  faGithub,
+  faTwitter,
+  faInstagram,
+  faSpinner,
+  faDiscord
+);
 
 export default function(
   Vue: VueConstructor,

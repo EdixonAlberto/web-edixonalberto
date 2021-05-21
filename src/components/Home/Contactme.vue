@@ -113,25 +113,12 @@
             <p class="text-lg text-tailwind">
               Si quieres llevar tus ideas al mundo digital, enviame tu propuesta.
             </p>
+
             <p class="text-4xl mt-4">Datos de contacto</p>
 
             <article class="data">
-              <p>
-                <strong>Pais:</strong>
-                Venezuela
-              </p>
-              <p>
-                <strong>Número:</strong>
-                +58 424 5309444
-              </p>
-              <p>
-                <strong>Email:</strong>
-                {{ myEmail }}
-              </p>
-              <p>
-                <strong>Horario:</strong>
-                De Lunes a Viernes, de 8:00 a 18:00
-              </p>
+              <p><strong>Discord:</strong> {{ discord.username }}</p>
+              <p><strong>Email:</strong> {{ myEmail }}</p>
             </article>
 
             <social-networks />
@@ -162,6 +149,7 @@ export default Vue.extend({
     return {
       sendingEmail: false,
       myEmail: networks.email.link,
+      discord: networks.discord,
       name: '',
       email: '',
       message: ''

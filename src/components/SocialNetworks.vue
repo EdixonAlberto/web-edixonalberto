@@ -1,6 +1,6 @@
 <template>
   <div class="social-container">
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-5">
       <div
         class="icon md:text-left text-center"
         v-for="(network, key, i) in networks"
@@ -38,31 +38,31 @@ export default Vue.extend({
 @import '@/assets/scss/colors';
 
 .social-container {
-  margin-top: 39px;
+  margin-top: 25px;
 }
 
 .icon {
   & > a {
-    margin-top: 20px;
-    padding: 9px 10px;
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 1px 1px 7px 1px $color-primary;
-    transition: ease-in 0.2s all;
+    width: 40px;
+    height: 40px;
 
-    & > svg {
-      transition: ease-in 0.2s all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px rgba($color: #000000, $alpha: 0.5);
+    background-color: white;
+    transition: all 0.1s ease-in-out;
+
+    svg {
       font-size: 20px;
       color: black;
     }
 
     &:hover {
       box-shadow: none;
-
-      & > svg {
-        font-size: 18px;
-        line-height: 50px;
-      }
+      transform: scale(0.9);
     }
   }
 }
