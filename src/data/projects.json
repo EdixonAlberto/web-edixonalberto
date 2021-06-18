@@ -1,5 +1,22 @@
 [
   {
+    "title": "",
+    "description": "",
+    "content": "",
+    "links": [],
+    "image": ""
+  },
+  {
+    "title": "Web Linux",
+    "description": "Web page that looks like a linux desktop",
+    "content": "",
+    "links": [
+      "https://skyliss.netlify.app/",
+      "https://github.com/EdixonAlberto/web-liss"
+    ],
+    "image": "https://repository-images.githubusercontent.com/365625035/63466480-d7a7-11eb-9938-9d96ed6376a9"
+  },
+  {
     "title": "Librería Instagrapi",
     "description": "Librería para obtener información de una cuenta de instagram de una forma amigable e intuitiva",
     "content": "",
@@ -10,7 +27,7 @@
     "image": "https://raw.githubusercontent.com/EdixonAlberto/instagrapi/main/.github/template-github.png"
   },
   {
-    "title": "Librería Concord",
+    "title": "Framework Concord",
     "description": "Un micro-framework para crear bots de Discord abstrayendo la libreria discord.js. Con concord puedes crear bots para Discord rápidamente.",
     "content": "",
     "links": [

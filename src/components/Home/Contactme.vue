@@ -129,16 +129,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script lang="js">
 import axios from 'axios';
 import { required, minLength } from 'vuelidate/lib/validators';
 import SocialNetworks from '@/components/SocialNetworks.vue';
 import networks from '@/data/networks.json';
 
-let grecaptcha: any, process: any; // TODO: por ahora, para eliminar el error en TS
-
-export default Vue.extend({
+export default {
   name: 'Contactme',
 
   components: {
@@ -159,12 +156,11 @@ export default Vue.extend({
   validations: {
     name: {
       required,
-      minLength: minLength(8)
+      minLength: minLength(4)
     },
     email: {
       required,
-      emailFormat: (email: string) =>
-        new RegExp(/^$|^[a-z0-9_.]+\@[a-z]+\.com$/).test(email)
+      emailFormat: (email) => new RegExp(/^$|^[a-z0-9_.]+\@[a-z]+\.[a-z]+$/).test(email)
     },
     message: {
       required
@@ -172,76 +168,72 @@ export default Vue.extend({
   },
 
   methods: {
-    async submit(): Promise<void> {
+    async submit() {
       // block button
       this.sendingEmail = true;
 
-      const verifed: boolean = await this.captchaVerify();
+      // TODO: corregir error en grecaptcha he implementar de nuevo
+      // const verifed: boolean = await this.captchaVerify();
 
-      if (verifed) {
-        // Prepare data
-        const mail: TEmail = {
-          from: this.email,
-          to: this.myEmail,
-          subject: `Nuevo correo de ${this.name} <${this.email}>`,
-          message: this.message
-        };
+      // Prepare data
+      const mail = {
+        from: 'edixonalbertto@gmail.com',
+        to: this.myEmail,
+        subject: `Nuevo correo de ${this.name} <${this.email}>`,
+        message: this.message
+      };
 
-        // Send email
-        const correct = await this.sendMail(mail);
+      // Send email
+      const correct = await this.sendMail(mail);
 
-        if (correct) {
-          alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
-          this.resetForm();
-        }
+      if (correct) {
+        alert('¡Su correo ha sido enviado con exito!.\nMuchas gracias por su tiempo.');
+        this.resetForm();
       }
 
       this.sendingEmail = false;
     },
 
-    captchaVerify: async function(): Promise<boolean> {
-      return new Promise<boolean>(
-        (resolve): void => {
-          grecaptcha.ready(
-            (): void => {
-              grecaptcha
-                .execute(process.env.GRIDSOME_RECAPTCHA_API_KEY, { action: 'submit' })
-                .then(async (token: string) => {
-                  const url = `${process.env.GRIDSOME_API_URL}/api/recaptcha_verify`;
+    /** @InDisuse */
+    captchaVerify: async function() {
+      return new Promise((resolve) => {
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute(process.env.GRIDSOME_RECAPTCHA_API_KEY, { action: 'submit' })
+            .then(async (token) => {
+              const url = `${process.env.GRIDSOME_API_URL}/api/recaptcha_verify`;
 
-                  const body = { response: token };
+              const body = { response: token };
 
-                  const { status, data } = await axios.post(url, body, {
-                    headers: {
-                      Accept: 'application/json',
-                      'Content-Type': 'application/json',
-                      ak: process.env.GRIDSOME_SERVER_API_KEY
-                    }
-                  });
+              const { status, data } = await axios.post(url, body, {
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  ak: process.env.GRIDSOME_SERVER_API_KEY
+                }
+              });
 
-                  if (status === 200 && data.type === 'Successful') resolve(true);
-                  else {
-                    console.warn('WARN-RECAPTCHA ->', data);
-                    alert('Error en la verificación de reCAPTCHA');
-                    resolve(false);
-                  }
-                })
-                .catch((error: Error) => {
-                  console.error('ERROR-RECAPTCHA ->', error.message);
+              if (status === 200 && data.type === 'Successful') resolve(true);
+              else {
+                console.warn('WARN-RECAPTCHA ->', data);
+                alert('Error en la verificación de reCAPTCHA');
+                resolve(false);
+              }
+            })
+            .catch((error) => {
+              console.error('ERROR-RECAPTCHA ->', error.message);
 
-                  alert(
-                    'No se puede conectar con reCAPTCHA. ' +
-                      'Comprueba tu conexión e inténtalo de nuevo.'
-                  );
-                  resolve(false);
-                });
-            }
-          );
-        }
-      );
+              alert(
+                'No se puede conectar con reCAPTCHA. ' +
+                  'Comprueba tu conexión e inténtalo de nuevo.'
+              );
+              resolve(false);
+            });
+        });
+      });
     },
 
-    async sendMail(mail: TEmail): Promise<boolean> {
+    async sendMail(mail) {
       const errorMessage =
         'Ha ocurrido un error y no se ha podido enviar su correo.\n' +
         'Por favor intentelo de nuevo.';
@@ -267,21 +259,22 @@ export default Vue.extend({
           return false;
         }
       } catch (error) {
-        console.error('ERROR-SEND-MAIL ->', error.message);
+        console.error('ERROR-SEND-MAIL ->', error);
+        if (error.response) console.error(error.response.data);
 
         alert(errorServer);
         return false;
       }
     },
 
-    resetForm(): void {
+    resetForm() {
       this.name = '';
       this.email = '';
       this.message = '';
       this.$v.$reset();
     }
   }
-});
+};
 </script>
 
 <style lang="scss" scoped>

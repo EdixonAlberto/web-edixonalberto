@@ -1,6 +1,6 @@
 {
   "name": "web-edixonalberto",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Personal website and programming blog",
   "keywords": [
     "personal website",
@@ -11,7 +11,7 @@
     "portfolio"
   ],
   "author": {
-    "name": "Edixon Alberto",
+    "name": "Edixon Piña",
     "email": "edixonalbertto@gmail.com",
     "url": "https://www.edixonalberto.com"
   },
@@ -22,8 +22,8 @@
     "lint": "prettier --write ./src/**/*.{js,vue,md}",
     "build": "gridsome build",
     "explore": "gridsome explore",
-    "start": "gridsome develop",
-    "start:prod": "yarn run build && live-server ./dist",
+    "dev": "gridsome develop",
+    "start": "yarn run build && live-server ./dist",
     "deploy": "gh-pages -o github -d ./dist"
   },
   "dependencies": {

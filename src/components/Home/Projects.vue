@@ -3,6 +3,7 @@
     <ul class="projects-box overflow-y-auto">
       <li v-for="(project, index) in projects" :key="index">
         <div
+          v-if="project.title"
           class="relative md:flex items-center my-6 mx-4 opacity-75 hover:opacity-100
         cursor-pointer"
         >
@@ -38,7 +39,7 @@
                 <p class="mb-2" v-if="project.content">{{ project.content }}</p>
 
                 <div class="text-sm">
-                  <span>Repositorio:</span>
+                  <span>Enlaces:</span>
                   <ul>
                     <li v-for="(link, index) in project.links" :key="index">
                       <g-link :to="link" target="_blank"> ☁ {{ link }} </g-link>
