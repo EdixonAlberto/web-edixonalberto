@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div
-      class="hero container-inner relative mx-auto pb-56 flex flex-row justify-center text-2xl sm:text-4xl font-bold"
+      class="hero container-inner relative mx-auto pb-56 text-2xl sm:text-4xl font-bold"
     >
       <div class="grid grid-cols-5 w-full text-left pt-16">
         <div class="col-span-3 leading-tight my-6">
@@ -88,14 +88,13 @@
   </Layout>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script lang="js">
 import Section from '@/layouts/Section.vue';
 import Projects from '@/components/Home/Projects.vue';
 import Companies from '@/components/Home/Companies.vue';
 import Contactme from '@/components/Home/Contactme.vue';
 
-export default Vue.extend({
+export default {
   components: {
     Section,
     Projects,
@@ -108,19 +107,22 @@ export default Vue.extend({
   },
 
   methods: {
-    goAbout(): void {
+    goAbout() {
       scrollTo({
-        top: document.getElementById('about')?.clientHeight as number + 65 + 40 + 24,
+        top: document.getElementById('about')?.clientHeight + 65 + 40 + 24,
         behavior: 'smooth'
       })
     }
   }
-});
+};
 </script>
 
 <style lang="scss" scoped>
 .hero {
   height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .arrow-icon {
     position: absolute;
