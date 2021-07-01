@@ -15,7 +15,7 @@ import {
   faInstagram,
   faDiscord
 } from '@fortawesome/free-brands-svg-icons';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Vuelidate from 'vuelidate';
 
 config.autoAddCss = false;
@@ -26,7 +26,8 @@ library.add(
   faTwitter,
   faInstagram,
   faSpinner,
-  faDiscord
+  faDiscord,
+  faChevronDown
 );
 
 export default function(
@@ -52,11 +53,11 @@ export default function(
   /* SEO */
   head.meta.push({
     name: 'description',
-    content: 'Edixon Alberto | WebSite'
+    content: 'Personal website and programming blog'
   });
 
   head.meta.push({
     name: 'author',
-    content: 'Edixon Alberto'
+    content: 'Edixon Piña'
   });
 }

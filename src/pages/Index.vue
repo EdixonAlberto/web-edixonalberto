@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div
-      class="hero container-inner mx-auto flex-row justify-between text-2xl sm:text-4xl font-bold h-screen pt-32"
+      class="hero container-inner relative mx-auto pb-56 flex flex-row justify-center text-2xl sm:text-4xl font-bold"
     >
-      <div class="grid grid-cols-5 w-full text-left">
+      <div class="grid grid-cols-5 w-full text-left pt-16">
         <div class="col-span-3 leading-tight my-6">
           <p class="mb-5">Edixon Piña</p>
           <span class="block sm:mt-6">Ingeniero Electrónico en Computación</span>
@@ -19,9 +19,18 @@
         </div>
       </div>
 
-      <p class="text-color-secondary text-center leading-tight mt-6">
+      <p class="text-color-secondary text-center leading-tight mt-10">
         Bienvenid@ a mi sitio web
       </p>
+
+      <div class="arrow-icon">
+        <font-awesome
+          :icon="['fa', 'chevron-down']"
+          size="lg"
+          color="#2c7a7b"
+          @click="goAbout"
+        />
+      </div>
     </div>
 
     <Section id="about" title="Sobre mí">
@@ -96,6 +105,47 @@ export default Vue.extend({
 
   metaInfo: {
     title: 'edixonalberto.com'
+  },
+
+  methods: {
+    goAbout(): void {
+      scrollTo({
+        top: document.getElementById('about')?.clientHeight as number + 65 + 40 + 24,
+        behavior: 'smooth'
+      })
+    }
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.hero {
+  height: calc(100vh - 64px);
+
+  .arrow-icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    text-align: center;
+
+    animation: down 2.5s infinite ease-in-out;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes down {
+  0% {
+    bottom: 20%;
+  }
+  50% {
+    bottom: 18%;
+  }
+  100% {
+    bottom: 20%;
+  }
+}
+</style>
