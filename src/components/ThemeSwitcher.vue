@@ -49,8 +49,7 @@ export default Vue.extend({
 
   methods: {
     toggleTheme(): void {
-      const newTheme: TTheme =
-        this.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
+      const newTheme: TTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
 
       localStorage.setItem('theme', newTheme);
       this.$emit('themeChanged', newTheme);

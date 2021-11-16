@@ -49,7 +49,7 @@ export default Vue.extend({
     border-radius: 50%;
     box-shadow: 0px 0px 4px rgba($color: #000000, $alpha: 0.5);
     background-color: white;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     svg {
       font-size: 20px;
