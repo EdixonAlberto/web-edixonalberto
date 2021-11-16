@@ -1,11 +1,7 @@
 <template>
   <div class="social-container">
     <div class="grid grid-cols-5">
-      <div
-        class="icon md:text-left text-center"
-        v-for="(network, key, i) in networks"
-        :key="i"
-      >
+      <div class="icon md:text-left text-center" v-for="(network, key, i) in networks" :key="i">
         <a
           class="text-white hover:text-gray-400"
           target="_blank"

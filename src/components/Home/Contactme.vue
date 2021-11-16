@@ -7,22 +7,18 @@
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1695 57"
     >
-      <path
-        d="M0 23c135.4 19 289.6 28.5 462.5 28.5C721.9 51.5 936.7 1 1212.2 1c183.6-.1 344.5 7.3 482.8 22v34H0V23z"
-      >
+      <path d="M0 23c135.4 19 289.6 28.5 462.5 28.5C721.9 51.5 936.7 1 1212.2 1c183.6-.1 344.5 7.3 482.8 22v34H0V23z">
         <title>curve</title>
       </path>
     </svg>
 
-    <div
-      class="grid md:grid-rows-4 grid-rows-6 text-center bg-background-tertiary md:px-10 px-6 pb-10"
-    >
+    <div class="grid md:grid-rows-4 grid-rows-6  text-center bg-background-tertiary md:px-40 px-6 pb-10">
       <div class="row-span-1 self-center">
         <h1 class="text-2xl font-bold text-tailwind">Contactame</h1>
       </div>
 
       <div class="md:row-span-3 row-span-5">
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-16">
+        <div class="grid md:grid-cols-2 grid-cols-1 justify-items-start gap-16">
           <section class="form text-black m-0">
             <form @submit.prevent="submit" autocomplete="off">
               <input
@@ -98,12 +94,7 @@
                 ]"
                 :disabled="sendingEmail"
               >
-                <font-awesome
-                  v-if="sendingEmail"
-                  :icon="['fa', 'spinner']"
-                  spin
-                  size="lg"
-                />
+                <font-awesome v-if="sendingEmail" :icon="['fa', 'spinner']" spin size="lg" />
                 <span v-else>Enviar</span>
               </button>
             </form>
@@ -118,7 +109,6 @@
 
             <article class="data">
               <p><strong>Discord:</strong> {{ discord.username }}</p>
-              <p><strong>Email:</strong> {{ myEmail }}</p>
             </article>
 
             <social-networks />

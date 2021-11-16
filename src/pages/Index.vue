@@ -1,8 +1,6 @@
 <template>
   <Layout>
-    <div
-      class="hero container-inner relative mx-auto pb-56 text-2xl sm:text-4xl font-bold"
-    >
+    <div class="hero container-inner relative mx-auto pb-56 text-2xl sm:text-4xl font-bold">
       <div class="grid grid-cols-5 w-full text-left pt-16">
         <div class="col-span-3 leading-tight my-6">
           <p class="mb-5">Edixon Piña</p>
@@ -10,12 +8,7 @@
         </div>
 
         <div class="col-span-2 sm:mt-0">
-          <g-image
-            class="mx-auto sm:mx-0"
-            src="@/assets/svg/programmer.svg"
-            alt="hero"
-            width="350%"
-          />
+          <g-image class="mx-auto sm:mx-0" src="@/assets/svg/programmer.svg" alt="hero" width="350%" />
         </div>
       </div>
 
@@ -24,23 +17,14 @@
       </p>
 
       <div class="arrow-icon">
-        <font-awesome
-          :icon="['fa', 'chevron-down']"
-          size="lg"
-          color="#2c7a7b"
-          @click="goAbout"
-        />
+        <font-awesome :icon="['fa', 'chevron-down']" size="lg" color="#2c7a7b" @click="goAbout" />
       </div>
     </div>
 
     <Section id="about" title="Sobre mí">
       <div class="flex flex-col sm:flex-row gap-10 items-start">
         <div class="m-auto text-center">
-          <g-image
-            class="flex-auto w-40 h-40 rounded-full mb-8 lg:mb-0"
-            src="/images/avatar.png"
-            alt="avatar"
-          />
+          <g-image class="flex-auto w-40 h-40 rounded-full mb-8 lg:mb-0" src="/images/avatar.png" alt="avatar" />
         </div>
 
         <div class="flex-1 text-lg">
@@ -53,16 +37,15 @@
           </p>
 
           <p class="mt-4">
-            Realizo proyectos y presto mis servicios de forma remota a empresas en todo el
-            mundo, trabajando en el diseño, desarrollo y mantenimiento de software tanto
-            en el <span class="font-bold text-color-secondary">frontend</span> como en el
+            Realizo proyectos y presto mis servicios de forma remota a empresas en todo el mundo, trabajando en el
+            diseño, desarrollo y mantenimiento de software tanto en el
+            <span class="font-bold text-color-secondary">frontend</span> como en el
             <span class="font-bold text-color-secondary">backend</span>.
           </p>
 
           <p class="mt-4">
-            Soy una persona autodidacta, que se dedica constantemente aprender nuevas
-            herramientas y tecnologías para optimizar su trabajo y crecer
-            profesionalmente.
+            Soy una persona autodidacta, que se dedica constantemente aprender nuevas herramientas y tecnologías para
+            optimizar su trabajo y crecer profesionalmente.
           </p>
           <p class="mt-4">He trabajado para las siguientes empresas:</p>
         </div>
@@ -109,7 +92,7 @@ export default {
   methods: {
     goAbout() {
       scrollTo({
-        top: document.getElementById('about')?.clientHeight + 65 + 40 + 24,
+        top: document.getElementById('about').clientHeight,
         behavior: 'smooth'
       })
     }

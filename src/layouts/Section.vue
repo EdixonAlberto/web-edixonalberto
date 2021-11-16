@@ -1,8 +1,6 @@
 <template>
   <div class="overflow-x-hidden" :id="id">
-    <div
-      class="border-gray-500 border-t container-inner mx-auto text-xl sm:pt-10 mb-24 relative"
-    >
+    <div class="border-gray-500 border-t container-inner mx-auto text-xl sm:pt-10 mb-24 relative">
       <h2 v-if="title" class="text-2xl font-bold mb-10 text-center">{{ title }}</h2>
       <slot />
     </div>

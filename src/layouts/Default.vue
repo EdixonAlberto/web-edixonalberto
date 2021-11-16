@@ -5,15 +5,9 @@
     :class="theme"
   >
     <header class="bg-green-700">
-      <nav
-        class="container mx-auto flex-row justify-end py-8"
-        :class="{ 'h-10': !isOpen }"
-      >
+      <nav class="container mx-auto flex-row justify-end py-8" :class="{ 'h-10': !isOpen }">
         <div class="block lg:hidden">
-          <button
-            class="flex items-center px-3 py-2 -mt-4 border rounded"
-            @click="isOpen = !isOpen"
-          >
+          <button class="flex items-center px-3 py-2 -mt-4 border rounded" @click="isOpen = !isOpen">
             <svg class="h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="#ffff" />
             </svg>
@@ -36,31 +30,19 @@
           </li>
 
           <li class="mr-8 mb-6 lg:mb-0">
-            <a
-              v-if="$route.path === '/'"
-              href="/#about"
-              v-scroll-to="'#about'"
-              class="hover:text-gray-400"
+            <a v-if="$route.path === '/'" href="/#about" v-scroll-to="'#about'" class="hover:text-gray-400"
               >Sobre mí
             </a>
           </li>
 
           <li class="mr-8 mb-6 lg:mb-0">
-            <a
-              v-if="$route.path === '/'"
-              href="/#projects"
-              v-scroll-to="'#projects'"
-              class="hover:text-gray-400"
+            <a v-if="$route.path === '/'" href="/#projects" v-scroll-to="'#projects'" class="hover:text-gray-400"
               >proyectos
             </a>
           </li>
 
           <li class="mr-2 mb-6 lg:mb-0">
-            <a
-              v-if="$route.path === '/'"
-              href="/#contactme"
-              v-scroll-to="'#contactme'"
-              class="hover:text-gray-400"
+            <a v-if="$route.path === '/'" href="/#contactme" v-scroll-to="'#contactme'" class="hover:text-gray-400"
               >Contactame
             </a>
           </li>

@@ -13,10 +13,9 @@
   "author": {
     "name": "Edixon Piña",
     "email": "edixonalbertto@gmail.com",
-    "url": "https://www.edixonalberto.com"
+    "url": "https://edixonalberto.com"
   },
   "license": "UNLICENSED",
-  "private": true,
   "scripts": {
     "clean": "rimraf .cache src/.temp",
     "lint": "prettier --write ./src/**/*.{js,vue,md}",

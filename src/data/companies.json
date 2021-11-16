@@ -5,13 +5,13 @@
     "page": "https://www.wit.la"
   },
   {
-    "name": "Gálac Software",
-    "logo": "/images/logos/galac.png",
-    "page": "http://www.galac.com"
-  },
-  {
     "name": "CTF Capital",
     "logo": "/images/logos/ctf.png",
     "page": "https://www.ctf.capital"
+  },
+  {
+    "name": "Gálac Software",
+    "logo": "/images/logos/galac.png",
+    "page": "https://www.galac.com"
   }
 ]
