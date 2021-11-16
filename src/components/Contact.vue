@@ -14,10 +14,7 @@
           Escribeme un correo electrónico, responderé lo antes posible.
         </h3>
         <!-- TRIANGLE -->
-        <div
-          class="absolute right-0 top-0 mt-2"
-          style="transform: translate(100%) rotate(180deg)"
-        >
+        <div class="absolute right-0 top-0 mt-2" style="transform: translate(100%) rotate(180deg)">
           <svg width="170px" height="170px">
             <use xlink:href="#dots-triangle" />
           </svg>
@@ -37,22 +34,26 @@
                   name="name"
                   defaultValue=""
                   placeholder="Ingrese su nombre"
-                  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4"
+                  class="
+                    block w-full bg-background-form border border-border-color-primary shadow rounded outline-none
+                    focus:border-green-700 mb-2 p-4
+                  "
                   required
                 />
               </div>
 
               <div class="w-full px-4 md:w-1/2">
-                <label class="block text-color-primary mb-2" for="email"
-                  >Dirección de Correo
-                </label>
+                <label class="block text-color-primary mb-2" for="email">Dirección de Correo </label>
                 <input
                   id="email"
                   type="email"
                   name="email"
                   defaultValue=""
                   placeholder="email@example.com"
-                  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4"
+                  class="
+                    block w-full bg-background-form border border-border-color-primary shadow rounded outline-none
+                    focus:border-green-700 mb-2 p-4
+                  "
                   required
                 />
               </div>
@@ -67,7 +68,10 @@
                 rows="5"
                 name="message"
                 defaultValue=""
-                class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-green-700 mb-2 px-4 py-4"
+                class="
+                  block w-full bg-background-form border border-border-color-primary shadow rounded outline-none
+                  appearance-none focus:border-green-700 mb-2 px-4 py-4
+                "
                 placeholder="Ingrese su mensaje aquí."
                 required
               ></textarea>
@@ -77,12 +81,11 @@
               <input
                 type="submit"
                 value="Enviar"
-                class="block bg-green-700 text-white text-sm font-semibold tracking-wide uppercase shadow rounded  px-6 py-3 mb-8"
-                :class="[
-                  sendingEmail
-                    ? 'bg-green-800 cursor-wait'
-                    : 'hover:bg-green-800 cursor-pointer'
-                ]"
+                class="
+                  block bg-green-700 text-white text-sm font-semibold tracking-wide uppercase shadow rounded
+                  px-6 py-3 mb-8
+                "
+                :class="[sendingEmail ? 'bg-green-800 cursor-wait' : 'hover:bg-green-800 cursor-pointer']"
                 :disabled="sendingEmail"
               />
             </div>
@@ -150,20 +153,15 @@ export default {
 
     async sendMail(mail) {
       const errorMessage =
-        'Ha ocurrido un error y no se ha podido enviar su correo.\n' +
-        'Por favor pulse enviar de nuevo.';
+        'Ha ocurrido un error y no se ha podido enviar su correo.\n' + 'Por favor pulse enviar de nuevo.';
 
       try {
-        const { status, data } = await axios.post(
-          `${process.env.GRIDSOME_API_URL}/api/send_email`,
-          mail,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              ak: process.env.GRIDSOME_API_KEY
-            }
+        const { status, data } = await axios.post(`${process.env.GRIDSOME_API_URL}/api/send_email`, mail, {
+          headers: {
+            'Content-Type': 'application/json',
+            ak: process.env.GRIDSOME_API_KEY
           }
-        );
+        });
         console.log(data);
 
         // TODO: add notification later
