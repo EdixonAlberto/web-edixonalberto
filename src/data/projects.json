@@ -1,37 +1,66 @@
 [
   {
+    "title": "Ecommerce Vue3",
+    "description": "",
+    "links": ["https://ecommerce-vue3.netlify.app"],
+    "image": "https://d33wubrfki0l68.cloudfront.net/6164f11d80f7f4000702d692/screenshot_2021-10-12-02-21-53-0000.png",
+    "completed": false
+  },
+  {
+    "title": "Web Linux",
+    "description": "Web page that looks like a linux desktop",
+    "links": ["https://weblinux.netlify.app", "https://github.com/EdixonAlberto/web-linux"],
+    "image": "https://repository-images.githubusercontent.com/365625035/63466480-d7a7-11eb-9938-9d96ed6376a9",
+    "completed": false
+  },
+  {
+    "title": "CSS Battle",
+    "description": "Monorepo with several projects related with the CSS Battle page",
+    "links": ["https://github.com/EdixonAlberto/css-battle"],
+    "image": "https://repository-images.githubusercontent.com/396207520/6383053e-1e0d-419b-8bab-1f510ebceb7b",
+    "completed": false
+  },
+  {
+    "title": "Trading Operator Bot",
+    "description": "A tradingbot operator to create, delete or edit orders through an API",
+    "links": ["https://github.com/EdixonAlberto/trading-operator-bot"],
+    "image": "",
+    "completed": true
+  },
+  {
     "title": "Bot CoinBot",
-    "description": "Bot de discord para administrar criptomonedas en el mercado de Binance.",
-    "content": "",
+    "description": "Bot de discord para administrar criptomonedas en el mercado de Binance",
     "links": ["https://github.com/EdixonAlberto/coin-bot"],
-    "image": "https://raw.githubusercontent.com/EdixonAlberto/coin-bot/dev/.github/chat-discord.png"
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/coin-bot/dev/.github/chat-discord.png",
+    "completed": true
   },
   {
     "title": "Api Dicabeg",
-    "description": "Api RESTful para la aplicación movil Dicabeg.",
-    "content": "Creación de programa backend y base de datos PostgreSQL.",
+    "description": "Api RESTful para la aplicación movil Dicabeg",
     "links": ["https://github.com/EdixonAlberto/api-dicabeg"],
-    "image": "https://raw.githubusercontent.com/EdixonAlberto/api-dicabeg/v2/.github/image-preview.jpg"
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/api-dicabeg/v2/.github/image-preview.jpg",
+    "completed": true
   },
   {
     "title": "Doc Dicabeg",
     "description": "Pagina web estática para documentar aplicación movil Dicabeg",
-    "content": "",
     "links": ["https://github.com/EdixonAlberto/doc-dicabeg"],
-    "image": "https://raw.githubusercontent.com/EdixonAlberto/doc-dicabeg/master/.github/index-page.png"
-  },
-  {
-    "title": "Web edixonalberto.com",
-    "description": "Pagina web personal para exponer proyectos e información profesional.",
-    "content": "",
-    "links": ["https://github.com/EdixonAlberto/web-edixonalberto"],
-    "image": "https://raw.githubusercontent.com/EdixonAlberto/web-edixonalberto/master/.github/index-page.png"
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/doc-dicabeg/master/.github/index-page.png",
+    "completed": true
   },
   {
     "title": "Register ReactJS",
-    "description": "Formulario para registro y almacenamiento de usuarios.",
-    "content": "Validación completa de campos, control de estado con Redux y almacenamiento en la nube con Firebase.",
+    "description": "Formulario para registro y almacenamiento de usuarios",
     "links": ["https://github.com/EdixonAlberto/register-react"],
-    "image": "https://raw.githubusercontent.com/EdixonAlberto/register-react/master/docs/pantalla1.png"
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/register-react/master/docs/pantalla1.png",
+    "completed": true
+  },
+  {
+    "title": "Web edixonalberto.com",
+    "description": "Pagina web personal para exponer proyectos e información profesional",
+    "content": "",
+    "links": ["https://github.com/EdixonAlberto/web-edixonalberto"],
+    "image": "https://raw.githubusercontent.com/EdixonAlberto/web-edixonalberto/master/.github/index-page.png",
+    "completed": true
   }
 ]

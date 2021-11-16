@@ -1,11 +1,6 @@
 <template>
   <div class="overflow-x-hidden" :id="id">
-    <div
-      :class="[
-        separator ? 'border-gray-500 border-t' : '',
-        'container-inner mx-auto text-xl pt-10 mb-24 relative'
-      ]"
-    >
+    <div :class="[separator ? 'border-gray-500 border-t' : '', 'container-inner mx-auto text-xl pt-10 mb-24 relative']">
       <h2 v-if="title" class="text-2xl font-bold mb-10 text-center">{{ title }}</h2>
       <div
         v-if="triangulePos == 'r'"

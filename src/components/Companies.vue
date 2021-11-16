@@ -1,9 +1,9 @@
 <template>
-  <div class="">
-    <ul class="text-center  mx-auto text-lg sm:text-xl">
+  <div class="companies">
+    <ul class="text-center mx-auto text-lg sm:text-xl">
       <li v-for="(company, index) in companies" :key="index" class="inline">
         <a
-          class="opacity-75 hover:opacity-100 m-4"
+          class="opacity-75 hover:opacity-100 m-8"
           :href="company.page"
           target="_blank"
           :alt="company.name"
@@ -30,6 +30,7 @@ export default {
 
 <style scoped>
 img {
+  transition: filter 0.25s ease-in;
   filter: grayscale(100%) brightness(300%) contrast(14%);
 }
 

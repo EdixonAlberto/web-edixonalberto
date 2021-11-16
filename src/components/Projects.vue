@@ -1,52 +1,28 @@
 <template>
-  <div class="bg-background-tertiary border-background-tertiary rounded-lg">
-    <ul class="projects-box overflow-y-auto">
-      <li v-for="(project, index) in projects" :key="index">
-        <div
-          class="relative md:flex items-center my-6 mx-4 opacity-75 hover:opacity-100
-        cursor-pointer"
-        >
-          <!-- IMAGE -->
-          <div class="projects-img w-full md:w-2/5 h-full overflow-hidden">
-            <g-image
-              class="absolute w-full h-full object-contain object-left rounded-l-lg"
-              :src="project.image"
-              :alt="project.title"
-            />
-            <div class="absolute w-full h-full bg-green-600 opacity-25 rounded-lg"></div>
-          </div>
+  <div class="projects">
+    <ul class="projects__container">
+      <li v-for="(project, i) in projects" :key="i" class="projects__card">
+        <div v-if="project.title">
+          <div class="projects__banner" :style="{ backgroundImage: `url('${project.image}')` }"></div>
 
-          <!-- CONTENT -->
-          <div
-            class="absolute right-0 w-full md:w-3/5 h-full flex items-center bg-gray-100
-            rounded-r-lg"
-          >
-            <svg
-              class="hidden md:block absolute inset-y-0 h-full w-24 fill-gray-100
-              text-gray-100 -ml-12"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
+          <div class="projects__content">
+            <h2 class="mb-2">{{ project.title }}</h2>
+            <p class="mb-2">{{ project.description }}</p>
 
-            <div class="absolute mx-3 pr-3">
-              <h2 class="font-bold colors text-gray-800">{{ project.title }}</h2>
+            <h3>Enlaces:</h3>
 
-              <div class="text-sm text-gray-600">
-                <p class="mb-2">{{ project.description }}</p>
-                <p class="mb-2" v-if="project.content">{{ project.content }}</p>
+            <ul>
+              <li v-for="(link, i) in project.links" :key="i">
+                <g-link :to="link" target="_blank"> 🔗 {{ link }} </g-link>
+              </li>
+            </ul>
 
-                <div class="text-sm">
-                  <span>Repositorio:</span>
-                  <ul>
-                    <li v-for="(link, index) in project.links" :key="index">
-                      <g-link :to="link" target="_blank"> ☁ {{ link }} </g-link>
-                    </li>
-                  </ul>
-                </div>
+            <h3 class="mt-3">
+              Estado:
+              <div class="badge-state" :class="{ completed: project.completed }">
+                <span class="text-white font-semibold" v-text="project.completed ? 'Completed' : 'In Progress'"></span>
               </div>
-            </div>
+            </h3>
           </div>
         </div>
       </li>
@@ -67,11 +43,102 @@ export default {
 </script>
 
 <style scoped>
-.projects-box {
-  height: 690px;
+.projects {
+  --height-card: 450px;
+  width: 100%;
+}
+
+.projects .projects__container {
+  width: 1200px;
+  padding: 20px;
+  margin-left: -100px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  @apply bg-background-tertiary;
+  border: none;
+  border-radius: 20px;
+}
+
+.projects__card {
+  height: var(--height-card);
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  @apply bg-background-primary;
+  border-radius: 30px;
+
+  transform: scale(0.95);
+  transition: transform 0.35s ease-in-out;
+}
+
+.projects__card:hover {
+  transform: scale(1);
+}
+
+.projects__banner {
+  height: calc(var(--height-card) * 0.4);
+  width: 100%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border-radius: 30px 30px 0 0;
+}
+
+.projects__content {
+  height: calc(var(--height-card) * 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.projects__content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.projects__content p,
+span {
+  font-size: 18px;
+}
+
+.projects__content li {
+  font-size: 16px;
 }
 
 .projects-img {
   min-height: 15rem;
+}
+
+.badge-state {
+  width: max-content;
+  height: auto;
+  display: inline-flex;
+  padding: 2px 12px;
+  margin-left: 3px;
+
+  border: none;
+  border-radius: 20px;
+}
+
+.badge-state {
+  background: #b72b74;
+}
+
+.badge-state.completed {
+  background: #5aa70c;
 }
 </style>

@@ -12,12 +12,7 @@
         </div>
 
         <div class="col-span-2 sm:mt-0">
-          <g-image
-            class="mx-auto sm:mx-0"
-            src="@/assets/svg/programmer.svg"
-            alt="hero"
-            width="350%"
-          />
+          <g-image class="mx-auto sm:mx-0" src="@/assets/svg/programmer.svg" alt="hero" width="350%" />
         </div>
       </div>
 
@@ -36,7 +31,7 @@
             class="w-32 h-32 rounded-full mb-8 lg:mb-0"
           />
         </div>
-        <div class="flex-1 text-lg text-base ml-6">
+        <div class="flex-1 text-base ml-6">
           <p>
             Mi nombre es Edixon Alberto Piña Hernandez, soy
             <span class="font-bold text-color-secondary">
@@ -46,16 +41,15 @@
           </p>
 
           <p class="mt-4">
-            Realizo proyectos y presto mis servicios de forma remota a empresas en todo el
-            mundo, trabajando en el diseño, desarrollo y mantenimiento de software tanto
-            en el <span class="font-bold text-color-secondary">frontend</span> como en el
+            Realizo proyectos y presto mis servicios de forma remota a empresas en todo el mundo, trabajando en el
+            diseño, desarrollo y mantenimiento de software tanto en el
+            <span class="font-bold text-color-secondary">frontend</span> como en el
             <span class="font-bold text-color-secondary">backend</span>.
           </p>
 
           <p class="mt-4">
-            Soy una persona autodidacta, que se dedica constantemente aprender nuevas
-            herramientas y tecnologías para optimizar su trabajo y crecer
-            profesionalmente.
+            Soy una persona autodidacta, que se dedica constantemente aprender nuevas herramientas y tecnologías para
+            optimizar su trabajo y crecer profesionalmente.
           </p>
           <p class="mt-4">He trabajado para las siguientes empresas:</p>
         </div>
@@ -75,13 +69,7 @@
     </Section> -->
 
     <!-- PROJECTS -->
-    <Section
-      id="projects"
-      title="Proyectos"
-      subtitle="Proyectos realizados"
-      triangulePos="r"
-      :separator="true"
-    >
+    <Section id="projects" title="Proyectos" subtitle="Proyectos realizados" triangulePos="" :separator="true">
       <projects />
     </Section>
 

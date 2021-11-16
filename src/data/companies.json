@@ -1,8 +1,8 @@
 [
   {
-    "name": "Gálac Software",
-    "logo": "/images/logos/galac.png",
-    "page": "http://www.galac.com"
+    "name": "WIT",
+    "logo": "/images/logos/wit.png",
+    "page": "https://www.wit.cl"
   },
   {
     "name": "CTF Capital",
@@ -10,8 +10,8 @@
     "page": "https://www.ctf.capital"
   },
   {
-    "name": "Gestsol",
-    "logo": "/images/logos/gestsol.png",
-    "page": "http://www.gestsol.cl/"
+    "name": "Gálac Software",
+    "logo": "/images/logos/galac.png",
+    "page": "https://www.galac.com"
   }
 ]
